@@ -1,0 +1,2946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<style>
+    .backgr-pri{
+        background-color: #f53d2d;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html{
+        font-size: 62.5%;
+        font-family: sans-serif;
+    }
+    body{
+        background-color: #f5f5f5;
+    }
+    #container{
+        margin: auto;
+    }
+    .menu-top{
+        width: 100%;
+        background: linear-gradient(-180deg, #f53d2d, #f63);
+    }
+    .menu-top-sticky{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    .container-wrapper{
+        max-width: 120rem;
+        margin: auto;
+    }
+    .navbar-wrapper{
+        padding: .3rem 0;
+    }
+    .flex{
+        display: flex;
+    }
+    .flexWrap{
+        flex-wrap: wrap;
+    }
+    .fg33p3333{
+        flex-grow: 33.3333;
+    }
+    .alitct{
+        align-items: center;
+    }
+    .flex-1{
+        flex: 1;
+    }
+    .f2{
+        flex: 2;
+    }
+    .fldrtcl{
+        flex-direction: column;
+    }
+    .dis-none{
+        display:none;
+    }
+    .block{
+        display: block;
+    }
+    .center{
+        justify-content: space-around;
+        align-items: center;
+    }
+    .jus-space-bew{
+        justify-content: space-between;
+    }
+    .jus-center{
+        justify-content: center;
+    }
+    .jtfctct{
+        justify-content: center;
+    }
+    .alitct{
+        align-items: center;
+    }
+    .v-center{
+        display: flex;
+        align-items: center;
+    }
+    .navbar__spacer{
+        flex: 1;
+    }
+    .navbar__links{
+        list-style: none;
+        height: 2.125rem;
+    }
+    .navbar__link{
+        position: relative;
+        font-size: 1.3rem;
+        color: #fff;
+        text-decoration: none;
+        padding: .5rem 0;
+        display: block;
+    }
+    .talct{
+        text-align: center;
+    }
+    .text-dec{
+        text-decoration: none;
+    }
+    ._2TLLZP{
+        color: #fff;
+        font-size: 1.3rem;
+    }
+    .lsn{
+        list-style: none;
+    }
+    .mgat{
+        margin: auto;
+    }
+    .mgt0p5r{
+        margin-top: .5rem;
+    }
+    .mgt1r{
+        margin-top: 1rem;
+    }
+    .mgt2r{
+        margin-top: 2rem;
+    }
+    .m-l-0{
+       margin-left: 0;
+    }
+    .m-l-1{
+        margin-left: 1rem;
+    }
+    .m-l-2{
+        margin-left: 2rem;
+    }
+    .m-l-03{
+        margin-left: .3rem;
+    }
+    .m-l-05{
+        margin-left: .5rem;
+    }
+    .m-l-1-3{
+        margin-left: 1.3rem;
+    }
+    .m-r-05{
+        margin-right: .5rem;
+    }
+    .mgr0p5r{
+        margin-right: .5rem;
+    }
+    .mgbt1r{
+        margin-bottom: 1rem;
+    }
+    .mgr1p5r{
+        margin-right: 1.5rem;
+    }
+    .mw120r{
+        max-width: 120rem;
+    }
+    .pd0p2r{
+        padding: .2rem;
+    }
+    .p-1{
+        padding: 1rem;
+    }
+    .pd1r{
+        padding: 1rem;
+    }
+    .pd2r{
+        padding: 2rem;
+    }
+    .pdt0p5r{
+        padding-top: .5rem;
+    }
+    .p-t-1{
+        padding-top: 1rem;
+    }
+    .pdt1r{
+        padding-top: 1rem;
+    }
+    .pdt3r{
+        padding-top: 3rem;
+    }
+    .p-l-1{
+        padding-left: 1rem;
+    }
+    .pdl2r{
+        padding-left: 2rem;
+    }
+    .p-l-25{
+        padding-left: .25rem;
+    }
+    .pdr1r{
+        padding-right: 1rem;
+    }
+    .pdr2r{
+        padding-right: 2rem;
+    }
+    .p-b-1{
+        padding-bottom: 1rem;
+    }
+    .pdbt0p8r{
+        padding-bottom: .8rem;
+    }
+    .pdbt1r{
+        padding-bottom: 1rem;
+    }
+    .pdbt3r{
+        padding-bottom: 3rem;
+    }
+    .fs0p5r{
+        font-size: .5rem;
+    }
+    .fs1p3r{
+        font-size: 1.3rem;
+    }
+    .f-s-1-4{
+        font-size: 1.4rem;
+    }
+    .fs1p4r{
+        font-size: 1.4rem;
+    }
+    .f-s-1-6{
+        font-size: 1.6rem;
+    }
+    .fs1p7r{
+        font-size: 1.7rem;
+    }
+    .fs2r{
+        font-size: 2rem;
+    }
+    .posi-re{
+        position: relative;
+    }
+    .pstrlt{
+        position: relative;
+    }
+    .posi-ab{
+        position: absolute;
+    }
+    .pstasl{
+        position: absolute;
+    }
+    .wihr{
+        width: inherit;
+    }
+    .w0p5r{
+        width: .5rem;
+    }
+    .w0p7r{
+        width: .7rem;
+    }
+    .w1r{
+        width: 1rem;
+    }
+    .w2r{
+        width: 2rem;
+    }
+    .w10{
+        width: 10rem;
+    }
+    .w10r{
+        width: 10rem;
+    }
+    .w13r{
+        width: 13rem;
+    }
+    .w15r{
+        width: 15rem;
+    }
+    .w4p5r{
+        width: 4.5rem;
+    }
+    .w6p{
+        width: 6%;
+    }
+    .w10p{
+        width: 10%;
+    }
+    .w16p{
+        width: 16%;
+    }
+    .w20p{
+        width: 20%;
+    }
+    .w25p{
+        width: 25%;
+    }
+    .w50p{
+        width: 50%;
+    }
+    .w70p{
+        width: 70%;
+    }
+    .w90p{
+        width: 90%;
+    }
+    .w100p{
+        width: 100%;
+    }
+    .h1r{
+        height: 1rem;
+    }
+    .h1p2r{
+        height: 1.2rem;
+    }
+    .h1p5r{
+        height: 1.5rem;
+    }
+    .h1p6r{
+        height: 1.6rem;
+    }
+    .h2r{
+        height: 2rem;
+    }
+    .h9r{
+        height: 9rem;
+    }
+    .h7r{
+        height: 7rem;
+    }
+    .h10r{
+        height: 10rem;
+    }
+    .h11p1r{
+        height: 11.1rem;
+    }
+    .h15r{
+        height: 15rem;
+    }
+    .h47r{
+        height: 47rem;
+    }
+    .h11p{
+        height: 11%;
+    }
+    .h50p{
+        height: 50%;
+    }
+    .h70p{
+        height: 70%;
+    }
+    .h89p{
+        height: 89%;
+    }
+    .hfull{
+        height: 100%;
+    }
+    .h100p{
+        height: 100%;
+    }
+    .hihr{
+        height: inherit;
+    }
+    .full{
+        width: 100%;
+        height: 100%;
+    }
+    .clw{
+        color: #fff;
+    }
+    .color-3{
+        color: #333;
+    }
+    .cl0{
+        color: #000;
+    }
+    .cle{
+        color: #ee4d2d;
+    }
+    .fill{
+        fill: #fff;
+    }
+    .fcle{
+        fill: #ee4d2d;
+    }
+    .backgr-fff{
+        background-color: #fff;
+    }
+    .bgcl000{
+        background-color: #000;
+    }
+    .hover-color-red:hover{
+        color: red;
+    }
+    .bor-none{
+        border:none;
+    }
+    .bdr{
+        border-right: .1rem solid rgba(0, 0, 0, .05);
+    }
+    .bdbt{
+        border-bottom: .1rem solid rgba(0, 0, 0, .05);
+    }
+    .bor-radi-02{
+        border-radius: .2rem;
+    }
+    .bdrdu0p2r{
+        border-radius: .2rem;
+    }
+    .bdrdu50p{
+        border-radius: 50%;
+    }
+    .outline-none{
+        outline: none;
+    }
+    .opaci-05{
+        opacity: .5;
+    }
+    .opaci-05:hover{
+        opacity: 1;
+    }
+    .opaci-hover-to05:hover{
+        opacity: .5;
+    }
+    .pointer{
+        cursor: pointer;
+    }
+    .befor::before, .after::after{
+        position: absolute;
+        content: '';
+    }
+    .befor-w::before{
+        width: .2rem;
+        height: 1.5rem;
+        left: -1rem;
+        background-color: rgba(255, 255, 255, 0.22);
+    }
+    .befor-w19::before{
+        width: 19rem;
+        height: 2rem;
+        left: -.2rem;
+        top: -1.5rem;
+    }
+    .befor-w9::before{
+        width: 9rem;
+        height: 2rem;
+        right: 0;
+        top: -.5rem;
+    }
+    .after-w2::after{
+        top: -1.6rem;
+        right: 3rem;
+        border-bottom: 1rem solid #fff;
+        border-top: 1rem solid transparent;
+        border-left: 1rem solid transparent;
+        border-right: 1rem solid transparent;
+    }
+    .atd::after{
+        bottom: -.8rem;
+        border-color: transparent rgba(255,212,36,.9);
+        border-style: solid;
+        border-width: 0 2.5rem .8rem;
+    }
+    .ats::after{
+        bottom: -.5rem;
+        border-width: 0 2rem .6rem;
+    }
+    .atr0p3r::after{
+        right: .3rem;
+    }
+    .after-r4-6::after{
+        right: 4.6rem;
+    }
+    .hover:hover .hover-to{
+        display: block;    
+        transform-origin: 30% top;
+        animation: menuNotiGrowth ease-in 0.2s;
+    }
+    .hover:hover .hover-to-88p{
+        transform-origin: 88% top;
+    }
+    .hover:hover .hover-to-70p{
+        transform-origin: 70% top;
+    }
+    .hover:hover .hvtbsd{
+        box-shadow: 0 1px 12px 0 rgb(0 0 0 / 12%);
+        transition: all linear .2s;
+    }
+    @keyframes menuNotiGrowth {
+        from {
+            opacity: 0;
+            transform: scale(0);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    .header-navbar-background{
+        width: 2rem;
+        height: 1.68rem;
+        margin-right: .3rem;
+        background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/cab134ca96b0829b591cfaff892ae62c.png);
+        background-size: 8rem;
+        background-repeat: no-repeat;
+        background-position-x: -0.5rem;
+        background-position-y: -0.5rem;
+    }
+    .b-p-x-35{
+        background-position-x: -3.35rem;
+    }
+    .backgr-color-fff{
+        background-color: #fff;
+    }
+    .drawer-wrapper{
+        position: relative;
+    }
+    .drawer-img{
+        position: absolute;
+        top: 3rem;
+        left: 1.8rem;
+        display: none;
+        z-index: 1;
+    }
+    .img-qr{
+        width: 19rem;
+        height: 19rem;
+        background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/d91264e165ed6facc6178994d5afae79.png);
+        background-size: 19rem;
+    }
+    .img-app{
+        width: 7rem;
+        height: 1.4rem;
+        background-size: 7rem;
+    }
+    .img-app-store{
+        height: 1.72rem;
+        background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/39f189e19764dab688d3850742f13718.png);
+    }
+    .img-gooplay{
+        background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/f4f5426ce757aea491dce94201560583.png);
+    }
+    .img-gallery{
+        margin-left: .8rem;
+        background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/1ae215920a31f2fc75b00d4ee9ae8551.png)
+    }
+    .stardust-popover{
+        width: 40rem;
+        height: 36rem;
+        right: 0;
+        top: 3rem;
+        background-color: #fff;
+    }
+    .icon-shopee-logo{
+        position: relative;
+        width: 16.2rem;
+        display: block;
+        height: 5rem;
+        overflow: hidden;
+    }
+    .searchbar-form{
+        height: 4rem;
+        padding: 0.3rem;
+        padding-left: 0;
+    }
+    .icon-search{
+        width: 6rem;
+        height: 1.5rem;
+    }
+    .icon-cart{
+        width: 2.6rem;
+        height: 2.6rem;
+        color: #fff;
+        stroke: #fff;
+    }
+    .under-search{
+        margin-left: 1.3rem;
+        margin-top: .3rem;
+        color: hsla(0,0%,100%,.9);
+    }
+    .under-search:first-child{
+        margin-left: 0;
+    }
+    .header-with-search__cart-wrapper{
+        height: 4.5rem;
+        flex-direction: column-reverse;
+    }
+    .header-with-search__cart-box{
+        width: 40rem;
+        height: 28rem;
+        top: 3.4rem;
+    }
+    .search-list-wrapper{
+        width: 90%;
+        height: 100%;
+        background-color: #fff;
+        top: 100%;
+        margin-top: .4rem;
+        border-radius: .2rem;
+        z-index: 1;
+    }
+    .search-list-placeholder{
+        width: 94.5%;
+        display: flex;
+        align-items: center;
+        font-size: 1.4rem;
+        padding: 1rem;
+    }
+    .search-list-img-right-wrapper{
+        display: flex;
+        align-items: center;
+    }
+    .search-list-img-right{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .box{
+        width: 19rem;
+        height: 7.3rem;
+    }
+    .main{
+        width: 100%;
+        margin-top: 12rem;
+    }
+    .oneTopLeft{
+        width: 73rem;
+        height: 24.5rem;
+        background-size: cover;
+    }
+    .rightBannerImage{
+        width: 100%;
+        height: 12rem;
+        margin: 0 .5rem;
+    }
+    .oneTopRightBottom{
+        margin-top: .5rem;
+    }
+    .oneBottom{
+        width: 100%;
+        height: 11rem;
+        justify-content: space-around;
+    }
+    .oneBottomJump{
+        top: 0;
+    }  
+    .oneBottomJump:hover{
+        top: -.1rem;
+        transition: all linear .1s;
+    }
+    .abc{
+        width: 4.5rem;
+        height: 4.5rem;
+        margin: 1.8rem auto .8rem;
+    }
+    .abd{
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+    .ab{
+        padding: 1.8rem;
+        margin: 0 .04rem;
+        flex-direction: column;
+    }
+    .price{
+        color: #ee4d2d;
+        font-size: 2rem;
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+    .ld{ 
+        height: 4rem;
+        line-height: 2rem;
+        word-break: break-word;
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+    .abe{
+        margin: 1.4rem 0 .5rem;
+    }
+    .faw{
+        top: 0;
+        right: 0;
+    }
+    .fa{
+        width: 5rem;
+        height: 4.5rem;
+        background-color: rgba(255,212,36,.9);
+    }
+    .fas{
+        width: 4rem;
+        height: 3.2rem;
+    }
+    .list{
+        padding: 2rem;
+        font-size: 1.8rem;
+        color: rgba(0, 0, 0, .54);
+        border-bottom: .1rem solid rgba(0, 0, 0, .05);
+    }
+    .right{
+        width: 2.5rem;
+        height: 2.5rem;
+        top: 54.8%;
+        right: 0;
+        box-shadow: 0 0.1rem 1.2rem 0 rgb(0 0 0 / 12%);
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transform: translateX(calc(50% - 0px));
+        transition: all .1s cubic-bezier(.4,0,.6,1);
+    }
+    .t41p{
+        top: 41%;
+    }
+    .svr{
+        width: 1rem;
+        height: 1rem;
+        color: rgba(0, 0, 0, .54);
+        fill: currentColor;
+        transition: width .1s cubic-bezier(.4,0,.6,1);
+    }
+    .fourul li{
+        width: 16.6667%;
+    }
+    .er{
+        background: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d….png) 0 100% no-repeat;
+        width: 17%;
+        height: inherit;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 8px 0 0 8px;
+        z-index: 1;
+    }
+    .ee{
+        background: #ffbda6;
+        width: inherit;
+        height: inherit;
+        border-radius: .8rem;
+    }
+    .sale{
+        font-weight: 700;
+        top: 0;
+        left: 0;
+        font-size: 1.2rem;
+        text-shadow: 0 0 8px rgb(0 0 0 / 12%);
+    }
+    .pdbt1r{
+        padding-bottom: 1rem;
+    }
+    .sixim{
+        width: 19rem;
+        height: 19rem;
+    }
+    .sixt{
+        width: 17.4rem;
+        height: 2.7rem;
+        line-height: 2.7rem;
+        text-align: center;
+        font-size: 18px;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        word-wrap: break-word;
+        overflow: hidden;
+        color: #d0011b;
+    }
+    .t54p{
+        top: 54%;
+    }
+    .sixc{
+        margin-left: 1.5rem;
+        padding-left: 1.5rem;
+        border-left: .1rem solid #d8d8d8;
+    }
+    .sixd{
+        font-size: 1.7rem;
+        margin-left: .6rem;
+    }
+    .siximd{
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+    .sixr{
+        width: 1.8rem;
+        height: 1.8rem;
+        background-color: #d0011b;
+    }
+    .cld0011b{
+        color: #d0011b;
+    }
+    .ttfupc{
+        text-transform: uppercase;
+    }
+    .sevent{
+        width: 3.2rem;
+        height: 4rem;
+        left: 0;
+    }
+    .sevenc{
+        padding: 2rem 1rem 4rem;
+    }
+    .sevenim{
+        width: 100%;
+        height: 18rem;
+    }
+    .seventa{
+        bottom: 0;
+        height: 2.6rem;
+        line-height: 2.6rem;
+        font-size: 1.5rem;
+        background-color: rgba(0, 0, 0, .26);
+    }
+    .sevenn{
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        margin-top: 1.6rem;
+        color: #555;
+        font-size: 1.8rem;
+        text-transform: capitalize;
+        word-break: break-word;
+    }
+    .containerWrapper{
+        max-width: 120rem;
+        margin: auto;
+        background-color: #fff;
+        margin-top: 2rem;
+    }
+    .eightText{
+        width: 100%;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 2rem 0 1.6rem;
+        color:#ee4d2d;
+        font-size: 1.6rem;
+    }
+    .eight .lineBottom{
+        width: 100%;
+        height: .4rem;
+        background-color:#ee4d2d;
+    }
+    .containerWrapperSimple{
+        max-width: 120rem;
+        margin: auto;
+        margin-top: .5rem;
+    }
+    .cardWrapper6{
+        width: 16.66667%;
+        padding: .5rem;
+    }
+    .nine .hover:hover{
+        border: .1rem solid #ee4d2d;
+    }
+    .hover:hover .cardSearchProduct{
+        display: block;
+    }
+    .cardImage{
+        width: 100%;
+        height: 20rem;
+    }
+    .cardFlug{
+        top: 1rem;
+        left: -.2rem;
+        background-color: #ee4d2d;
+        border-top-right-radius: .2rem;
+        border-bottom-right-radius: .2rem;
+        text-align: center;
+        font-size: 1.3rem;
+        padding: 0 .3rem;
+    }
+    .cardFlug::after{
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: -.1875rem;
+        border-top: .1875rem solid;
+        border-left: .1875rem solid;
+        filter: brightness(60%);
+        color: #ee4d2d;
+    }
+    .cardDownWrapper{
+        width: 3.6rem;
+        top: 0;
+        right: 0;
+    }
+    .cardDownContent{
+        width: 100%;
+        background-color: rgba(255,212,36,.9);
+        text-align: center;
+        font-size: 1.2rem;
+        padding: .3rem 0;
+    }
+    .cardDownEnd{
+        border: solid;
+        border-color: rgba(255,212,36,.9);
+        border-bottom-color: transparent;
+        border-width: 0 1.8rem .4rem;
+    }
+    .cardDescription{
+        word-wrap: break-word;
+        white-space: normal;
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        font-size: 1.2rem;
+        color: #333;
+        height: 2.8rem;
+    }
+    .cardPriceWrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+    }
+    .cardPrice{
+        color: #ee4d2d;
+    }
+    .cardSaled{
+        color: rgba(0, 0, 0, .54);
+        font-size: 1.3rem;
+    }
+    .cardSearchProduct{
+        width: 101%;
+        left: -.1rem;
+        text-align: center;
+        color: #fff;
+        background-color: #ee4d2d;
+        font-size: 1.4rem;
+        padding: .6rem;
+        z-index: 1;
+    }
+    .seeMore{
+        width: 100%;
+        margin-top: 2rem;
+        text-align: center;
+    }
+    .seeMore .a{
+        width: 38rem;
+        font-size: 1.4rem;
+        color: #555;
+        padding: 1rem 0;
+        display: inline-block;
+        border: .1rem solid rgba(0, 0, 0, .09);
+        background-color: #fff;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .03);
+        text-decoration: none;
+    }
+    .seeMore .a:hover{
+        background-color: #f5f5f5;
+    }
+    .pd0p5r{
+        padding: .5rem;
+    }
+    .mg0p5r{
+        margin: .5rem;
+    }
+    .footerContainer{
+        width: 100%;
+        margin-top: 4rem;
+        background-color: #fff;
+        border-top: .4rem solid #ee4d2d;
+    }
+    .footerOne .one{
+        padding: 4rem 0;
+    }
+    .title{
+        color: rgba(0, 0, 0, .54);
+        text-transform: uppercase;
+    }
+    .text{
+        padding-top: 1.8rem;
+        font-size: 1.2rem;
+        color: rgba(0, 0, 0, .54);
+        line-height: 1.8rem;
+    }
+    .text2{
+        padding-top: .5rem;
+    }
+    .footerLink{
+        display:flex;
+        flex-wrap: wrap;
+        line-height: 1.8rem;
+    }
+    .footerTwo{
+        background-color: #fbfbfb;
+    }
+    .ulFooterTwo .li:first-child{
+        padding-top: 1.8rem;
+    }
+    .ulFooterTwo .li{
+        text-transform: capitalize;
+    }
+    .ttfcptl{
+        text-transform: capitalize;
+    }
+    .ulFooterTwo .li a:hover,
+    .ulFooterOne .a:hover,
+    .ulFooterOne .title:hover{
+        color: red;
+    }
+    .footerTwo .imageVisa{
+        background-color: #fff;
+        padding: .4rem;
+        margin-right: 1rem;
+        box-shadow: 0 .1rem .1rem rgba(0 0 0 / 20%);
+        border-radius: .2rem;
+    }
+    .footerTwo .contryLink{
+        padding: 0 .5rem;
+        border-right: .1rem solid rgba(0, 0, 0, .2);
+    }
+    .footerTwo .contryLink:last-child,
+    .footerThree .oneA:last-child{
+        border-right: none;
+    }
+    .footerThree .oneA{
+        display: block;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        color: rgba(0, 0, 0, .54);
+        text-decoration: none;
+        padding: 0 2rem;
+        border-right: .1rem solid rgba(0, 0, 0, .1);
+    }
+    .footerThree .twoA{
+        width: 12rem;
+        height: 4.8rem;
+        display: block;
+        margin: 0 2rem;
+        background-position-x: -8rem;
+        background-position-y: -16.8rem;
+        background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/3ce17addcf90b8cd3952b8ae0ffc1299.png');
+    }
+    .footerThree .twoA.s{
+        width: 5rem;
+        background-position-x: -.8rem;
+        background-position-y: -15.4rem;
+    }
+    .footerThree .foure{
+        font-size: 1.2rem;
+        text-align: center;
+        line-height: 2.2rem;
+    }
+    .bgclf5f5f5{
+        background-color: #f5f5f5;
+    }
+    .fs1p2r{
+        font-size: 1.2rem;
+    }
+    .pdt0p8r{
+        padding-top: .8rem;
+    }
+    .pdt1p3r{
+        padding-top: 1.3rem;
+    }
+    .pdt1p8r{
+        padding-top: 1.8rem;
+    }
+    .pdt4r{
+        padding-top: 4rem;
+    }
+    .pdl4r{
+        padding-left: 4rem;
+    }
+    .pdbt1p8r{
+        padding-bottom: 1.8rem;
+    }
+    .pdbt4r{
+        padding-bottom: 4rem;
+    }
+    .pdbt8r{
+        padding-bottom: 8rem;
+    }
+    .mgt4r{
+        margin-top: 4rem;
+    }
+    .mgr1r{
+        margin-right: 1rem;
+    }
+    .mgbt1r{
+        margin-bottom: 1rem;
+    }
+    .cl054{
+        color: rgba(0, 0, 0, .54);
+    }
+    .bsd{
+        box-shadow: 0 .1rem .1rem rgba(0 0 0 / 20%);
+    }
+    .zid1{
+        z-index: 1;
+    }
+    .zid2{
+        z-index: 2;
+    }
+</style>
+<body>
+    <div id="container">
+        <header class="menu-top menu-top-sticky zid1">
+            <div class="navbar-wrapper container-wrapper">
+                <nav class="navbar v-center">
+                    <div class="v-center">
+                        <a href="#" class="navbar__link">Seller center</a>
+                        <a href="#" class="navbar__link befor befor-w m-l-2">Join as seller</a>
+                        <div class="drawer-wrapper hover">
+                            <a href="#" class="navbar__link befor befor-w m-l-2">Download</a>
+                            <div class="drawer-img backgr-color-fff bor-radi-02 befor befor-w19 hover-to">
+                                <div class="img-qr bor-radi-02"></div>
+                                <div class="app-wrapper p-1">
+                                    <div class="flex center p-b-1">
+                                        <div class="img-app img-app-store"></div>
+                                        <div class="img-app img-gooplay"></div>
+                                    </div>
+                                    <div class="img-app img-gallery"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="navbar__link befor befor-w m-l-2">Follow us on</div>
+                        <div class="flex p-l-25">
+                            <a href="#" class="header-navbar-background" target="_blank" title="Follow us on facebook"></a>
+                            <a href="#" class="header-navbar-background b-p-x-35" target="_blank" title="Follow us on instagram!"></a>
+                        </div>
+                    </div>
+                    <div class="navbar__spacer"></div>
+                    <ul class="navbar__links v-center">
+                        <li class="navbar__link">
+                            <div class="navbar__link v-center hover pointer">
+                                <i class="fa-regular fa-bell f-s-1-6 m-r-05"></i> Notifications
+                                <div class="stardust-popover posi-ab zid1 hover-to hover-to-88p befor befor-w9 after after-w2 dis-none">
+                                    <div class="top flex center h89p">
+                                        <div class="content">
+                                            <div class="flex center">
+                                                <img class="w10" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png" alt="">
+                                            </div>
+                                            <p class="color-3 f-s-1-4 p-t-1">Log in to view notifications</p>
+                                        </div>
+                                    </div>
+                                    <div class="bottom flex h11p">
+                                        <button class="w50p h100p bor-none f-s-1-4 opaci-05 hover-color-red pointer">
+                                            <a class="v-center jus-center text-dec full color-3 hover-color-red" href="#">Sign Up</a>
+                                        </button>
+                                        <button class="flex-1 h100p bor-none f-s-1-4 opaci-05 hover-color-red pointer">
+                                            <a class="v-center jus-center text-dec full color-3 hover-color-red" href="#">Login</a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="navbar__link">
+                            <a href="#" class="navbar__link v-center m-l-1">
+                                <i class="fa-duotone fa-question f-s-1-6 m-r-05"></i> Help
+                            </a>
+                        </li>
+                        <li class="navbar__link">
+                            <div class="navbar__link v-center m-l-1 pointer hover">
+                                <i class="fa-solid fa-globe f-s-1-6 m-r-05"></i>English
+                                <i class="fa-solid fa-chevron-down f-s-1-6 m-l-05"></i>
+                                <div class="box stardust-popover posi-ab zid1 f-s-1-4 befor befor-w9 after after-w2 after-r4-6 hover-to hover-to-70p dis-none">
+                                    <a class="text-dec block p-1 color-3 hover-color-red" href="#">Tieng Viet</a>
+                                    <a class="text-dec block p-1 color-3 hover-color-red" href="#">English</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="navbar__link">
+                            <a href="#" class="navbar__link m-l-1">Sign Up
+                            </a>
+                        </li>
+                        <li class="navbar__link">
+                            <a href="#" class="navbar__link m-l-1 befor befor-w m-l-2">Login
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-with-search-wrapper">
+                <div class="header-with-search container-wrapper flex jus-space-bew p-1">
+                    <a href="#" class="header-with-search__logo-section">
+                        <div class="header-with-search__logo-wrapper">
+                            <svg viewBox="0 0 192 65" class="header-with-search__shopee-logo icon-shopee-logo fill"><g fill-rule="evenodd"><path d="M35.6717403 44.953764c-.3333497 2.7510509-2.0003116 4.9543414-4.5823845 6.0575984-1.4379707.6145919-3.36871.9463856-4.896954.8421628-2.3840266-.0911143-4.6237865-.6708937-6.6883352-1.7307424-.7375522-.3788551-1.8370513-1.1352759-2.6813095-1.8437757-.213839-.1790053-.239235-.2937577-.0977428-.4944671.0764015-.1151823.2172535-.3229831.5286218-.7791994.45158-.6616533.5079208-.7446018.5587128-.8221779.14448-.2217688.3792333-.2411091.6107855-.0588804.0243289.0189105.0243289.0189105.0426824.0333083.0379873.0294402.0379873.0294402.1276204.0990653.0907002.0706996.14448.1123887.166248.1287205 2.2265285 1.7438508 4.8196989 2.7495466 7.4376251 2.8501162 3.6423042-.0496401 6.2615109-1.6873341 6.7308041-4.2020035.5160305-2.7675977-1.6565047-5.1582742-5.9070334-6.4908212-1.329344-.4166762-4.6895175-1.7616869-5.3090528-2.1250697-2.9094471-1.7071043-4.2697358-3.9430584-4.0763845-6.7048539.296216-3.8283059 3.8501677-6.6835796 8.340785-6.702705 2.0082079-.004083 4.0121475.4132378 5.937338 1.2244562.6816382.2873109 1.8987274.9496089 2.3189359 1.2633517.2420093.1777159.2898136.384872.1510957.60836-.0774686.12958-.2055158.3350171-.4754821.7632974l-.0029878.0047276c-.3553311.5640922-.3664286.5817134-.447952.7136572-.140852.2144625-.3064598.2344475-.5604202.0732783-2.0600669-1.3839063-4.3437898-2.0801572-6.8554368-2.130442-3.126914.061889-5.4706057 1.9228561-5.6246892 4.4579402-.0409751 2.2896772 1.676352 3.9613243 5.3858811 5.2358503 7.529819 2.4196871 10.4113092 5.25648 9.869029 9.7292478M26.3725216 5.42669372c4.9022893 0 8.8982174 4.65220288 9.0851664 10.47578358H17.2875686c.186949-5.8235807 4.1828771-10.47578358 9.084953-10.47578358m25.370857 11.57065968c0-.6047069-.4870064-1.0948761-1.0875481-1.0948761h-11.77736c-.28896-7.68927544-5.7774923-13.82058185-12.5059489-13.82058185-6.7282432 0-12.2167755 6.13130641-12.5057355 13.82058185l-11.79421958.0002149c-.59136492.0107446-1.06748731.4968309-1.06748731 1.0946612 0 .0285807.00106706.0569465.00320118.0848825H.99995732l1.6812605 37.0613963c.00021341.1031483.00405483.2071562.01173767.3118087.00170729.0236381.003628.0470614.00554871.0704847l.00362801.0782207.00405483.004083c.25545428 2.5789222 2.12707837 4.6560709 4.67201764 4.7519129l.00576212.0055872h37.4122078c.0177132.0002149.0354264.0004298.0531396.0004298.0177132 0 .0354264-.0002149.0531396-.0004298h.0796027l.0017073-.0015043c2.589329-.0706995 4.6867431-2.1768587 4.9082648-4.787585l.0012805-.0012893.0017073-.0350275c.0021341-.0275062.0040548-.0547975.0057621-.0823037.0040548-.065757.0068292-.1312992.0078963-.1964115l1.8344904-37.207738h-.0012805c.001067-.0186956.0014939-.0376062.0014939-.0565167M176.465457 41.1518926c.720839-2.3512494 2.900423-3.9186779 5.443734-3.9186779 2.427686 0 4.739107 1.6486899 5.537598 3.9141989l.054826.1556978h-11.082664l.046506-.1512188zm13.50267 3.4063683c.014933.0006399.014933.0006399.036906.0008531.021973-.0002132.021973-.0002132.044372-.0008531.53055-.0243144.950595-.4766911.950595-1.0271786 0-.0266606-.000853-.0496953-.00256-.0865936.000427-.0068251.000427-.020262.000427-.0635588 0-5.1926268-4.070748-9.4007319-9.09145-9.4007319-5.020488 0-9.091235 4.2081051-9.091235 9.4007319 0 .3871116.022399.7731567.067838 1.1568557l.00256.0204753.01408.1013102c.250022 1.8683731 1.047233 3.5831812 2.306302 4.9708108-.00064-.0006399.00064.0006399.007253.0078915 1.396026 1.536289 3.291455 2.5833031 5.393601 2.9748936l.02752.0053321v-.0027727l.13653.0228215c.070186.0119439.144211.0236746.243409.039031 2.766879.332724 5.221231-.0661182 7.299484-1.1127057.511777-.2578611.971928-.5423827 1.37064-.8429007.128211-.0968312.243622-.1904632.34346-.2781231.051412-.0452164.092372-.083181.114131-.1051493.468898-.4830897.498124-.6543572.215249-1.0954297-.31146-.4956734-.586228-.9179769-.821744-1.2675504-.082345-.1224254-.154023-.2267215-.214396-.3133151-.033279-.0475624-.033279-.0475624-.054399-.0776356-.008319-.0117306-.008319-.0117306-.013866-.0191956l-.00256-.0038391c-.256208-.3188605-.431565-.3480805-.715933-.0970445-.030292.0268739-.131624.1051493-.14997.1245582-1.999321 1.775381-4.729508 2.3465571-7.455854 1.7760208-.507724-.1362888-.982595-.3094759-1.419919-.5184948-1.708127-.8565509-2.918343-2.3826022-3.267563-4.1490253l-.02752-.1394881h13.754612zM154.831964 41.1518926c.720831-2.3512494 2.900389-3.9186779 5.44367-3.9186779 2.427657 0 4.739052 1.6486899 5.537747 3.9141989l.054612.1556978h-11.082534l.046505-.1512188zm13.502512 3.4063683c.015146.0006399.015146.0006399.037118.0008531.02176-.0002132.02176-.0002132.044159-.0008531.530543-.0243144.950584-.4766911.950584-1.0271786 0-.0266606-.000854-.0496953-.00256-.0865936.000426-.0068251.000426-.020262.000426-.0635588 0-5.1926268-4.070699-9.4007319-9.091342-9.4007319-5.020217 0-9.091343 4.2081051-9.091343 9.4007319 0 .3871116.022826.7731567.068051 1.1568557l.00256.0204753.01408.1013102c.250019 1.8683731 1.04722 3.5831812 2.306274 4.9708108-.00064-.0006399.00064.0006399.007254.0078915 1.396009 1.536289 3.291417 2.5833031 5.393538 2.9748936l.027519.0053321v-.0027727l.136529.0228215c.070184.0119439.144209.0236746.243619.039031 2.766847.332724 5.22117-.0661182 7.299185-1.1127057.511771-.2578611.971917-.5423827 1.370624-.8429007.128209-.0968312.243619-.1904632.343456-.2781231.051412-.0452164.09237-.083181.11413-.1051493.468892-.4830897.498118-.6543572.215246-1.0954297-.311457-.4956734-.586221-.9179769-.821734-1.2675504-.082344-.1224254-.154022-.2267215-.21418-.3133151-.033492-.0475624-.033492-.0475624-.054612-.0776356-.008319-.0117306-.008319-.0117306-.013866-.0191956l-.002346-.0038391c-.256419-.3188605-.431774-.3480805-.716138-.0970445-.030292.0268739-.131623.1051493-.149969.1245582-1.999084 1.775381-4.729452 2.3465571-7.455767 1.7760208-.507717-.1362888-.982582-.3094759-1.419902-.5184948-1.708107-.8565509-2.918095-2.3826022-3.267311-4.1490253l-.027733-.1394881h13.754451zM138.32144123 49.7357905c-3.38129629 0-6.14681004-2.6808521-6.23169343-6.04042014v-.31621743c.08401943-3.35418649 2.85039714-6.03546919 6.23169343-6.03546919 3.44242097 0 6.23320537 2.7740599 6.23320537 6.1960534 0 3.42199346-2.7907844 6.19605336-6.23320537 6.19605336m.00172791-15.67913203c-2.21776751 0-4.33682838.7553485-6.03989586 2.140764l-.19352548.1573553V34.6208558c0-.4623792-.0993546-.56419733-.56740117-.56419733h-2.17651376c-.47409424 0-.56761716.09428403-.56761716.56419733v27.6400724c0 .4539841.10583425.5641973.56761716.5641973h2.17651376c.46351081 0 .56740117-.1078454.56740117-.5641973V50.734168l.19352548.1573553c1.70328347 1.3856307 3.82234434 2.1409792 6.03989586 2.1409792 5.27140956 0 9.54473746-4.2479474 9.54473746-9.48802964 0-5.239867-4.2733279-9.48781439-9.54473746-9.48781439M115.907646 49.5240292c-3.449458 0-6.245805-2.7496948-6.245805-6.1425854 0-3.3928907 2.79656-6.1427988 6.245805-6.1427988 3.448821 0 6.24538 2.7499081 6.24538 6.1427988 0 3.3926772-2.796346 6.1425854-6.24538 6.1425854m.001914-15.5438312c-5.28187 0-9.563025 4.2112903-9.563025 9.4059406 0 5.1944369 4.281155 9.4059406 9.563025 9.4059406 5.281657 0 9.562387-4.2115037 9.562387-9.4059406 0-5.1946503-4.280517-9.4059406-9.562387-9.4059406M94.5919049 34.1890939c-1.9281307 0-3.7938902.6198995-5.3417715 1.7656047l-.188189.1393105V23.2574169c0-.4254677-.1395825-.5643476-.5649971-.5643476h-2.2782698c-.4600414 0-.5652122.1100273-.5652122.5643476v29.2834155c0 .443339.1135587.5647782.5652122.5647782h2.2782698c.4226187 0 .5649971-.1457701.5649971-.5647782v-9.5648406c.023658-3.011002 2.4931278-5.4412923 5.5299605-5.4412923 3.0445753 0 5.516841 2.4421328 5.5297454 5.4630394v9.5430935c0 .4844647.0806524.5645628.5652122.5645628h2.2726775c.481764 0 .565212-.0824666.565212-.5645628v-9.5710848c-.018066-4.8280677-4.0440197-8.7806537-8.9328471-8.7806537M62.8459442 47.7938061l-.0053397.0081519c-.3248668.4921188-.4609221.6991347-.5369593.8179812-.2560916.3812097-.224267.551113.1668119.8816949.91266.7358184 2.0858968 1.508535 2.8774525 1.8955369 2.2023021 1.076912 4.5810275 1.646045 7.1017886 1.6975309 1.6283921.0821628 3.6734936-.3050536 5.1963734-.9842376 2.7569891-1.2298679 4.5131066-3.6269626 4.8208863-6.5794607.4985136-4.7841067-2.6143125-7.7747902-10.6321784-10.1849709l-.0021359-.0006435c-3.7356476-1.2047686-5.4904836-2.8064071-5.4911243-5.0426086.1099976-2.4715346 2.4015793-4.3179454 5.4932602-4.4331449 2.4904317.0062212 4.6923065.6675996 6.8557356 2.0598624.4562232.2767364.666607.2256796.9733188-.172263.035242-.0587797.1332787-.2012238.543367-.790093l.0012815-.0019308c.3829626-.5500403.5089793-.7336731.5403767-.7879478.258441-.4863266.2214903-.6738208-.244985-1.0046173-.459427-.3290803-1.7535544-1.0024722-2.4936356-1.2978721-2.0583439-.8211991-4.1863175-1.2199998-6.3042524-1.1788111-4.8198184.1046878-8.578747 3.2393171-8.8265087 7.3515337-.1572005 2.9703036 1.350301 5.3588174 4.5000778 7.124567.8829712.4661613 4.1115618 1.6865902 5.6184225 2.1278667 4.2847814 1.2547527 6.5186944 3.5630343 6.0571315 6.2864205-.4192725 2.4743234-3.0117991 4.1199394-6.6498372 4.2325647-2.6382344-.0549182-5.2963324-1.0217793-7.6043603-2.7562084-.0115337-.0083664-.0700567-.0519149-.1779185-.1323615-.1516472-.1130543-.1516472-.1130543-.1742875-.1300017-.4705335-.3247898-.7473431-.2977598-1.0346184.1302162-.0346012.0529875-.3919333.5963776-.5681431.8632459"></path></g></svg>
+                        </div>
+                    </a>
+                    <div class="header-with-search__search-section w70p">
+                        <div class="searchbar">
+                            <div class="searchbar-main">
+                                <form role="search" class="searchbar-form w100p flex backgr-color-fff bor-radi-02 posi-re" autocomplete="off">
+                                    <input class="searchbar-input f-s-1-4 w100p bor-none outline-none p-l-1 hfull" placeholder="Sign up and receive voucher ban moi len den 70K!" onfocus="showSearchList();" onblur="hiddenSearchList();">
+                                    <button class="searchbar-btn backgr-pri hfull flex-1 v-center jus-center bor-none bor-radi-02">
+                                        <svg height="19" viewBox="0 0 19 19" width="19" class="icon-search fill"><g fill-rule="evenodd" stroke="none" stroke-width="1"><g transform="translate(-1016 -32)"><g><g transform="translate(405 21)"><g transform="translate(611 11)"><path d="m8 16c4.418278 0 8-3.581722 8-8s-3.581722-8-8-8-8 3.581722-8 8 3.581722 8 8 8zm0-2c-3.3137085 0-6-2.6862915-6-6s2.6862915-6 6-6 6 2.6862915 6 6-2.6862915 6-6 6z"></path><path d="m12.2972351 13.7114222 4.9799555 4.919354c.3929077.3881263 1.0260608.3842503 1.4141871-.0086574.3881263-.3929076.3842503-1.0260607-.0086574-1.414187l-4.9799554-4.919354c-.3929077-.3881263-1.0260608-.3842503-1.4141871.0086573-.3881263.3929077-.3842503 1.0260608.0086573 1.4141871z"></path></g></g></g></g></g></svg>
+                                    </button>
+                                    <div class="search-list-wrapper dis-none flex posi-ab w70p h11p backgr-color-fff">
+                                        <p class="search-list-placeholder">Sign up and receive voucher ban moi len den 70K!</p>
+                                        <div class="search-list-img-right-wrapper">
+                                            <img class="search-list-img-right" src="https://cf.shopee.vn/file/e92ab33ccea0695b22219c8a152d9f61" alt="">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <a href="#" class="navbar__link under-search">Tui xach nu</a>
+                            <a href="#" class="navbar__link under-search">Ao khoac</a>
+                            <a href="#" class="navbar__link under-search">Dep</a>
+                            <a href="#" class="navbar__link under-search">Ao Croptop</a>
+                            <a href="#" class="navbar__link under-search">Giay</a>
+                            <a href="#" class="navbar__link under-search">Ao thun</a>
+                            <a href="#" class="navbar__link under-search">Giay nam</a>
+                            <a href="#" class="navbar__link under-search">Dep nu</a>
+                        </div>
+                    </div>
+                    <div class="header-with-search__cart-wrapper flex">
+                        <a class="block posi-re hover" href="#">
+                            <svg viewBox="0 0 26.6 25.6" class="shopee-svg-icon navbar__link-icon icon-cart fill"><polyline fill="none" points="2 1.7 5.5 1.7 9.6 18.3 21.2 18.3 24.6 6.1 7 6.1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2.5"></polyline><circle cx="10.7" cy="23" r="2.2" stroke="none"></circle><circle cx="19.7" cy="23" r="2.2" stroke="none"></circle></svg>
+                            <div class="header-with-search__cart-box posi-ab stardust-popover dis-none zid1 hover-to hover-to-88p befor befor-w9 after after-w2 atr0p3r">
+                                <div class="top flex center h89p">
+                                    <div class="content">
+                                        <div class="flex center">
+                                            <img class="w10" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png" alt="">
+                                        </div>
+                                        <p class="color-3 f-s-1-4 p-t-1">Don't have any product</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="space w6p"></div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="one backgr-color-fff pdt3r">
+                <div class="container-wrapper">
+                    <div class="oneTop flex">
+                        <a href="#" class="oneTopLeft block full-home-banners__main-banner-image edy5hG" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-bee866b821e1cda05e6509718a2d6bc9_xxhdpi'); background-size: cover; background-repeat: no-repeat;"></a>
+                        <div class="oneTopRight flex-1">
+                            <a href="#" class="oneTopRightTop block rightBannerImage full-home-banners__right-banner-image edy5hG" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-39daedeb28f8148cba897c871726902a_xhdpi'); background-size: cover; background-repeat: no-repeat;"></a>
+                            <a href="#" class="oneTopRightBottom block rightBannerImage full-home-banners__right-banner-image" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-240c5f8a8648772309679b43cba80331_xhdpi'); background-size: cover; background-repeat: no-repeat;"></a>
+                        </div>
+                    </div>
+                    <div class="oneBottom flex">
+                        <a class="block text-dec color-3" href="#">
+                            <div class="w10 posi-re">
+                                <div class="oneBottomJump posi-ab">
+                                    <div class="abc w4p5r">
+                                        <div class="w4p5r abd" style="background-image: url('https://cf.shopee.vn/file/e4a404283b3824c211c1549aedd28d5f_xhdpi'); background-size: contain; background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="fs1p3r talct mgbt1r">Khung Giờ Săn Sale</div>
+                                </div>
+                            </div>                           
+                        </a>
+                        <a class="block text-dec color-3" href="#">
+                            <div class="w10 posi-re">
+                                <div class="oneBottomJump posi-ab">
+                                    <div class="abc w4p5r">
+                                        <div class="w4p5r abd" style="background-image: url('https://cf.shopee.vn/file/9df57ba80ca225e67c08a8a0d8cc7b85_xhdpi'); background-size: contain; background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="fs1p3r talct mgbt1r">Nap dien thoai & The game</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="block text-dec color-3" href="#">
+                            <div class="w10 posi-re">
+                                <div class="oneBottomJump posi-ab">
+                                    <div class="abc w4p5r">
+                                        <div class="w4p5r abd" style="background-image: url('https://cf.shopee.vn/file/b3535d7e56c58c4ebe9a87672d38cc5e_xhdpi'); background-size: contain; background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="fs1p3r talct mgbt1r">Gi cung re - Mua la Freeship</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="block text-dec color-3" href="#">
+                            <div class="w10 posi-re">
+                                <div class="oneBottomJump posi-ab">
+                                    <div class="abc w4p5r">
+                                        <div class="w4p5r abd" style="background-image: url('https://cf.shopee.vn/file/80dcfaf633608774229c32d8058b84e5_xhdpi'); background-size: contain; background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="fs1p3r talct mgbt1r">Ma Giam Gia</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="block text-dec color-3" href="#">
+                            <div class="w10 posi-re">
+                                <div class="oneBottomJump posi-ab">
+                                    <div class="abc w4p5r">
+                                        <div class="w4p5r abd" style="background-image: url('https://cf.shopee.vn/file/c7a2e1ae720f9704f92f72c9ef1a494a_xhdpi'); background-size: contain; background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="fs1p3r talct mgbt1r">Mien Phi Van Chuyen</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="block text-dec color-3" href="#">
+                            <div class="w10 posi-re">
+                                <div class="oneBottomJump posi-ab">
+                                    <div class="abc w4p5r">
+                                        <div class="w4p5r abd" style="background-image: url('https://cf.shopee.vn/file/1975fb1af4ae3c22878d04f6f440b6f9_xhdpi'); background-size: contain; background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="fs1p3r talct mgbt1r">Bat Trend - Gia Soc</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="block text-dec color-3" href="#">
+                            <div class="w10 posi-re">
+                                <div class="oneBottomJump posi-ab">
+                                    <div class="abc w4p5r">
+                                        <div class="w4p5r abd" style="background-image: url('https://cf.shopee.vn/file/21a4856d1fecd4eda143748661315dba_xhdpi'); background-size: contain; background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="fs1p3r talct mgbt1r">Hoan Xu Xtra Tu 100K</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="block text-dec color-3" href="#">
+                            <div class="w10 posi-re">
+                                <div class="oneBottomJump posi-ab">
+                                    <div class="abc w4p5r">
+                                        <div class="w4p5r abd" style="background-image: url('https://cf.shopee.vn/file/8d6d5ee795e7675fed39d31ba04c3b92_xhdpi'); background-size: contain; background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="fs1p3r talct mgbt1r">Hang Hieu Gia Tot</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="block text-dec color-3" href="#">
+                            <div class="w10 posi-re">
+                                <div class="oneBottomJump posi-ab">
+                                    <div class="abc w4p5r">
+                                        <div class="w4p5r abd" style="background-image: url('https://cf.shopee.vn/file/a08ab28962514a626195ef0415411585_xhdpi'); background-size: contain; background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="fs1p3r talct mgbt1r">Hang Quoc Te</div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="block text-dec color-3" href="#">
+                            <div class="w10 posi-re">
+                                <div class="oneBottomJump posi-ab">
+                                    <div class="abc w4p5r">
+                                        <div class="w4p5r abd" style="background-image: url('https://cf.shopee.vn/file/e90d0cb881d603a7f7cb4e0c9ff6a287_xhdpi'); background-size: contain; background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="fs1p3r talct mgbt1r">Chia Kho Xu 30 Trieu</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="two">
+                <div class="container-wrapper">
+                    <div class="mgt2r">
+                        <div style="background-image: url('https://cf.shopee.vn/file/vn-50009109-734bc5e5ba665697162120ae47565c47'); height: 6rem;"></div>
+                        <div class="flex jus-space-bew pdbt3r p-l-1 pdr1r" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-673a3f2396b7aae166a0115d5eef4405')">
+                            <div>
+                                <div class="flex jus-space-bew pd2r">
+                                    <span class="clw fs2r">DEAL HOT CHO BẠN</span>
+                                    <a class="flex text-dec alitct _2TLLZP" href="#">See more
+                                        <svg enable-background="new 0 0 13 21" viewBox="0 0 13 21" role="img" class="stardust-icon w1r h1r fill stardust-icon-arrow-right-bold"><path stroke="none" d="m11.1 9.9l-9-9-2.2 2.2 8 7.9-8 7.9 2.2 2.1 9-9 1-1z"></path></svg>
+                                    </a>
+                                </div>
+                                <div class="flex">
+                                    <a href="#" class="ab text-dec flex backgr-color-fff posi-re">
+                                        <div>
+                                            <div class="w15r h15r" style="background-image: url('https://cf.shopee.vn/file/62093ac8bb06d8274ab3d1eba0a051e1_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="abe v-center jus-center">
+                                            <p class="talct price">d398.000</p>
+                                        </div>
+                                        <div class="posi-ab faw">
+                                            <div class="fa atd after">
+                                                <div class="talct pd1r">
+                                                    <span class="cle">50%</span>
+                                                    <span class="block mgt0p5r clw">GIAM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="ab text-dec flex backgr-color-fff posi-re">
+                                        <div>
+                                            <div class="w15r h15r" style="background-image: url('https://cf.shopee.vn/file/sg-11134201-22090-du6nbjeka4hv95_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="abe v-center jus-center">
+                                            <p class="talct price">d289.000</p>
+                                        </div>
+                                        <div class="posi-ab faw">
+                                            <div class="fa atd after">
+                                                <div class="talct pd1r">
+                                                    <span class="cle">92%</span>
+                                                    <span class="block mgt0p5r clw">GIAM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="ab text-dec flex backgr-color-fff posi-re">
+                                        <div>
+                                            <div class="w15r h15r" style="background-image: url('https://cf.shopee.vn/file/sg-11134201-23010-w2h9hfj9hxlv5c_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="abe v-center jus-center">
+                                            <p class="talct price">d89.000</p>
+                                        </div>
+                                        <div class="posi-ab faw">
+                                            <div class="fa atd after">
+                                                <div class="talct pd1r">
+                                                    <span class="cle">60%</span>
+                                                    <span class="block mgt0p5r clw">GIAM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex jus-space-bew pd2r">
+                                    <span class="clw fs2r">HÀNG HIỆU GIÁ TỐT</span>
+                                    <a class="flex text-dec alitct _2TLLZP" href="#">See more
+                                        <svg enable-background="new 0 0 13 21" viewBox="0 0 13 21" role="img" class="stardust-icon w1r h1r fill stardust-icon-arrow-right-bold"><path stroke="none" d="m11.1 9.9l-9-9-2.2 2.2 8 7.9-8 7.9 2.2 2.1 9-9 1-1z"></path></svg>
+                                    </a>
+                                </div>
+                                <div class="flex">
+                                    <a href="#" class="ab text-dec flex backgr-color-fff posi-re">
+                                        <div>
+                                            <div class="w15r h15r" style="background-image: url('https://cf.shopee.vn/file/8b320d3134dd493ebc55d4b2f0129542'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="abe v-center jus-center">
+                                            <p class="talct price">d300.000</p>
+                                        </div>
+                                        <div class="posi-ab faw">
+                                            <div class="fa atd after">
+                                                <div class="talct pd1r">
+                                                    <span class="cle">74%</span>
+                                                    <span class="block mgt0p5r clw">GIAM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="ab text-dec flex backgr-color-fff posi-re">
+                                        <div>
+                                            <div class="w15r h15r" style="background-image: url('https://cf.shopee.vn/file/0aa75951aaac7cb90e28b7820e61d9e2'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="abe v-center jus-center">
+                                            <p class="talct price">d209.000</p>
+                                        </div>
+                                        <div class="posi-ab faw">
+                                            <div class="fa atd after">
+                                                <div class="talct pd1r">
+                                                    <span class="cle">42%</span>
+                                                    <span class="block mgt0p5r clw">GIAM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="ab text-dec flex backgr-color-fff posi-re">
+                                        <div>
+                                            <div class="w15r h15r" style="background-image: url('https://cf.shopee.vn/file/sg-11134201-22100-e3jofkj6csivb9_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="abe v-center jus-center">
+                                            <p class="talct price">d189.000</p>
+                                        </div>
+                                        <div class="posi-ab faw">
+                                            <div class="fa atd after">
+                                                <div class="talct pd1r">
+                                                    <span class="cle">30%</span>
+                                                    <span class="block mgt0p5r clw">GIAM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="container-wrapper backgr-color-fff mgt2r pstrlt">
+                    <div class="list">
+                        <p>DANH MỤC</p>
+                    </div>
+                    <ul class="flex lsn">
+                        <li class="w10p">
+                            <div>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct fldrtcl hvtbsd">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/687f3967b7c2fe6a134a2c11894eea4b_tn'); background-size: contain;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Thời Trang Nam</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/31234a27876fb89cd522d7e3db1ba5ca_tn'); background-size: contain;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Điện Thoại & Phụ Kiện</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="w10p">
+                            <div>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/099edde1ab31df35bc255912bab54a5e_tn'); background-size: contain;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Mẹ & Bé</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/75ea42f9eca124e9cb3cde744c060e4d_tn'); background-size: contain;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Thời Trang Nữ</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="w10p">
+                            <div>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/978b9e4cb61c611aaaf58664fae133c5_tn'); background-size: contain;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Thiết Bị Điện Tử</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/24b194a695ea59d384768b7b471d563f_tn'); background-size: contain;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Nhà Cửa & Đời Sống</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>     
+                        <li class="w10p">
+                            <div>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/c3f3edfaa9f6dafc4825b77d8449999d_tn'); background-size: contain;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Máy Tính & Laptop</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/ef1f336ecc6f97b790d5aae9916dcb72_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Sắc Đẹp</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="w10p">
+                            <div>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/ec14dd4fc238e676e43be2a911414d4d_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Máy Ảnh & Máy Quay Phim</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/49119e891a44fa135f5f6f5fd4cfc747_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Sức Khoẻ</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="w10p">
+                            <div>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/86c294aae72ca1db5f541790f7796260_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Đồng Hồ</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/48630b7c76a7b62bc070c9e227097847_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Giày Dép Nữ</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="w10p">
+                            <div>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/74ca517e1fa74dc4d974e5d03c3139de_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Giày Dép Nam</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/fa6ada2555e8e51f369718bbc92ccc52_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Túi Ví Nữ</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="w10p">
+                            <div>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/7abfbfee3c4844652b4a8245e473d857_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Thiết Bị Điện Gia Dụng</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/8e71245b9659ea72c1b4e737be5cf42e_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Phụ Kiện Và Trang Sức Nữ</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="w10p">
+                            <div>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/6cb7e633f8b63757463b676bd19a50e4_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Thể Thao Và Du Lịch</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/c432168ee788f903f1ea024487f2c889_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Bách Hóa Online</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="w10p">
+                            <div>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/3fb459e3449905545701b418e8220334_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Ô Tô & Xe Máy & Xe Đạp</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="block text-dec bdr bdbt hover" href="#">
+                                    <div class="pdt1r flex alitct jtfctct hvtbsd fldrtcl">
+                                        <div class="w70p h70p">
+                                            <div class="w100p h9r" style="background-image: url('https://cf.shopee.vn/file/36013311815c55d303b0e6c62d6a8139_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="fs1p4r pdbt1r color-3 talct w100p">
+                                            <p class="ld w90p mgat">Nhà Sách Online</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="pstasl right">
+                        <svg enable-background="new 0 0 13 21" viewBox="0 0 13 21" x="0" y="0" class="shopee-svg-icon icon-arrow-right-bold svr"><polygon points="11.1 9.9 2.1 .9 -.1 3.1 7.9 11 -.1 18.9 2.1 21 11.1 12 12.1 11"></polygon></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="four">
+                <div class="mw120r mgat backgr-color-fff mgt2r">
+                    <div class="flex h7r alitct pdr2r pdl2r">
+                        <div class="flex-1 flex">
+                            <div>
+                                <div class="w13r h2r" style="background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/fb1088de81e42c4e538967ec12cb5caa.png'); background-size: 13rem;"></div>
+                            </div>
+                            <div class="flex alitct m-l-2">
+                                <div class="bgcl000 h1p5r flex alitct jtfctct pd0p2r bdrdu0p2r m-r-05">
+                                    <div class="flex alitct jtfctct w1r">
+                                        <svg viewBox="0 0 41.701 69.001" role="img" class="fill w0p7r h1r stardust-icon stardust-icon-zoom"><path fill-rule="evenodd" stroke-linecap="round" stroke-width=".945" d="M.001 23.201v21.3a86.087 86.087 0 0 0 .141 5.239c.24 3.911.8 6.807 1.788 9.131a13.986 13.986 0 0 0 3.071 4.53c3.183 3.183 8.009 5.116 13.716 5.52a32.308 32.308 0 0 0 2.284.08 27.934 27.934 0 0 0 6.391-.693c2.999-.704 5.593-1.942 7.767-3.697a17.608 17.608 0 0 0 1.042-.91 16.219 16.219 0 0 0 4.725-8.397c.365-1.533.594-3.225.702-5.11a47.264 47.264 0 0 0 .073-2.693v-25.9c0-4.153-.458-7.389-1.5-10.073a15.929 15.929 0 0 0-4.5-6.327A20.063 20.063 0 0 0 26.805.689a27.077 27.077 0 0 0-6.204-.688c-6.7 0-12.5 2.2-16.1 6.2C1.536 9.443.202 13.886.022 21.359a76.328 76.328 0 0 0-.021 1.842zm29.1-.6v23.2a49.403 49.403 0 0 1-.043 2.168c-.07 1.589-.23 2.783-.497 3.768a8.197 8.197 0 0 1-.86 2.064 7.193 7.193 0 0 1-3.81 2.919 8.858 8.858 0 0 1-2.89.481 8.941 8.941 0 0 1-5.066-1.538 6.167 6.167 0 0 1-1.634-1.662 8.307 8.307 0 0 1-.297-.421c-.937-1.425-1.103-2.85-1.103-7.679v-22.7c0-2.681.162-4.465.54-5.847a8.234 8.234 0 0 1 .86-2.053c1.2-2.1 3.7-3.3 6.7-3.3a9.192 9.192 0 0 1 3.315.591 7.04 7.04 0 0 1 2.785 1.909 6.754 6.754 0 0 1 1.558 2.985c.316 1.252.442 2.856.442 5.115z"></path></svg>
+                                    </div>
+                                    <div class="flex alitct jtfctct w1r">
+                                        <svg viewBox="0 0 41.701 69.001" role="img" class="fill w0p7r h1r stardust-icon stardust-icon-zoom"><path fill-rule="evenodd" stroke-linecap="round" stroke-width=".945" d="M.001 23.201v21.3a86.087 86.087 0 0 0 .141 5.239c.24 3.911.8 6.807 1.788 9.131a13.986 13.986 0 0 0 3.071 4.53c3.183 3.183 8.009 5.116 13.716 5.52a32.308 32.308 0 0 0 2.284.08 27.934 27.934 0 0 0 6.391-.693c2.999-.704 5.593-1.942 7.767-3.697a17.608 17.608 0 0 0 1.042-.91 16.219 16.219 0 0 0 4.725-8.397c.365-1.533.594-3.225.702-5.11a47.264 47.264 0 0 0 .073-2.693v-25.9c0-4.153-.458-7.389-1.5-10.073a15.929 15.929 0 0 0-4.5-6.327A20.063 20.063 0 0 0 26.805.689a27.077 27.077 0 0 0-6.204-.688c-6.7 0-12.5 2.2-16.1 6.2C1.536 9.443.202 13.886.022 21.359a76.328 76.328 0 0 0-.021 1.842zm29.1-.6v23.2a49.403 49.403 0 0 1-.043 2.168c-.07 1.589-.23 2.783-.497 3.768a8.197 8.197 0 0 1-.86 2.064 7.193 7.193 0 0 1-3.81 2.919 8.858 8.858 0 0 1-2.89.481 8.941 8.941 0 0 1-5.066-1.538 6.167 6.167 0 0 1-1.634-1.662 8.307 8.307 0 0 1-.297-.421c-.937-1.425-1.103-2.85-1.103-7.679v-22.7c0-2.681.162-4.465.54-5.847a8.234 8.234 0 0 1 .86-2.053c1.2-2.1 3.7-3.3 6.7-3.3a9.192 9.192 0 0 1 3.315.591 7.04 7.04 0 0 1 2.785 1.909 6.754 6.754 0 0 1 1.558 2.985c.316 1.252.442 2.856.442 5.115z"></path></svg>
+                                    </div>
+                                </div>
+                                <div class="bgcl000 h1p5r flex alitct jtfctct pd0p2r bdrdu0p2r m-r-05">
+                                    <div class="flex alitct jtfctct w1r">
+                                        <svg viewBox="0 0 41.701 69.001" role="img" class="fill w0p7r h1r stardust-icon stardust-icon-zoom"><path fill-rule="evenodd" stroke-linecap="round" stroke-width=".945" d="M.001 23.201v21.3a86.087 86.087 0 0 0 .141 5.239c.24 3.911.8 6.807 1.788 9.131a13.986 13.986 0 0 0 3.071 4.53c3.183 3.183 8.009 5.116 13.716 5.52a32.308 32.308 0 0 0 2.284.08 27.934 27.934 0 0 0 6.391-.693c2.999-.704 5.593-1.942 7.767-3.697a17.608 17.608 0 0 0 1.042-.91 16.219 16.219 0 0 0 4.725-8.397c.365-1.533.594-3.225.702-5.11a47.264 47.264 0 0 0 .073-2.693v-25.9c0-4.153-.458-7.389-1.5-10.073a15.929 15.929 0 0 0-4.5-6.327A20.063 20.063 0 0 0 26.805.689a27.077 27.077 0 0 0-6.204-.688c-6.7 0-12.5 2.2-16.1 6.2C1.536 9.443.202 13.886.022 21.359a76.328 76.328 0 0 0-.021 1.842zm29.1-.6v23.2a49.403 49.403 0 0 1-.043 2.168c-.07 1.589-.23 2.783-.497 3.768a8.197 8.197 0 0 1-.86 2.064 7.193 7.193 0 0 1-3.81 2.919 8.858 8.858 0 0 1-2.89.481 8.941 8.941 0 0 1-5.066-1.538 6.167 6.167 0 0 1-1.634-1.662 8.307 8.307 0 0 1-.297-.421c-.937-1.425-1.103-2.85-1.103-7.679v-22.7c0-2.681.162-4.465.54-5.847a8.234 8.234 0 0 1 .86-2.053c1.2-2.1 3.7-3.3 6.7-3.3a9.192 9.192 0 0 1 3.315.591 7.04 7.04 0 0 1 2.785 1.909 6.754 6.754 0 0 1 1.558 2.985c.316 1.252.442 2.856.442 5.115z"></path></svg>
+                                    </div>
+                                    <div class="flex alitct jtfctct w1r">
+                                        <svg viewBox="0 0 41.701 69.001" role="img" class="fill w0p7r h1r stardust-icon stardust-icon-zoom"><path fill-rule="evenodd" stroke-linecap="round" stroke-width=".945" d="M.001 23.201v21.3a86.087 86.087 0 0 0 .141 5.239c.24 3.911.8 6.807 1.788 9.131a13.986 13.986 0 0 0 3.071 4.53c3.183 3.183 8.009 5.116 13.716 5.52a32.308 32.308 0 0 0 2.284.08 27.934 27.934 0 0 0 6.391-.693c2.999-.704 5.593-1.942 7.767-3.697a17.608 17.608 0 0 0 1.042-.91 16.219 16.219 0 0 0 4.725-8.397c.365-1.533.594-3.225.702-5.11a47.264 47.264 0 0 0 .073-2.693v-25.9c0-4.153-.458-7.389-1.5-10.073a15.929 15.929 0 0 0-4.5-6.327A20.063 20.063 0 0 0 26.805.689a27.077 27.077 0 0 0-6.204-.688c-6.7 0-12.5 2.2-16.1 6.2C1.536 9.443.202 13.886.022 21.359a76.328 76.328 0 0 0-.021 1.842zm29.1-.6v23.2a49.403 49.403 0 0 1-.043 2.168c-.07 1.589-.23 2.783-.497 3.768a8.197 8.197 0 0 1-.86 2.064 7.193 7.193 0 0 1-3.81 2.919 8.858 8.858 0 0 1-2.89.481 8.941 8.941 0 0 1-5.066-1.538 6.167 6.167 0 0 1-1.634-1.662 8.307 8.307 0 0 1-.297-.421c-.937-1.425-1.103-2.85-1.103-7.679v-22.7c0-2.681.162-4.465.54-5.847a8.234 8.234 0 0 1 .86-2.053c1.2-2.1 3.7-3.3 6.7-3.3a9.192 9.192 0 0 1 3.315.591 7.04 7.04 0 0 1 2.785 1.909 6.754 6.754 0 0 1 1.558 2.985c.316 1.252.442 2.856.442 5.115z"></path></svg>
+                                    </div>
+                                </div>
+                                <div class="bgcl000 h1p5r flex alitct jtfctct pd0p2r bdrdu0p2r">
+                                    <div class="flex alitct jtfctct w1r">
+                                        <svg viewBox="0 0 41.701 69.001" role="img" class="fill w0p7r h1r stardust-icon stardust-icon-zoom"><path fill-rule="evenodd" stroke-linecap="round" stroke-width=".945" d="M.001 23.201v21.3a86.087 86.087 0 0 0 .141 5.239c.24 3.911.8 6.807 1.788 9.131a13.986 13.986 0 0 0 3.071 4.53c3.183 3.183 8.009 5.116 13.716 5.52a32.308 32.308 0 0 0 2.284.08 27.934 27.934 0 0 0 6.391-.693c2.999-.704 5.593-1.942 7.767-3.697a17.608 17.608 0 0 0 1.042-.91 16.219 16.219 0 0 0 4.725-8.397c.365-1.533.594-3.225.702-5.11a47.264 47.264 0 0 0 .073-2.693v-25.9c0-4.153-.458-7.389-1.5-10.073a15.929 15.929 0 0 0-4.5-6.327A20.063 20.063 0 0 0 26.805.689a27.077 27.077 0 0 0-6.204-.688c-6.7 0-12.5 2.2-16.1 6.2C1.536 9.443.202 13.886.022 21.359a76.328 76.328 0 0 0-.021 1.842zm29.1-.6v23.2a49.403 49.403 0 0 1-.043 2.168c-.07 1.589-.23 2.783-.497 3.768a8.197 8.197 0 0 1-.86 2.064 7.193 7.193 0 0 1-3.81 2.919 8.858 8.858 0 0 1-2.89.481 8.941 8.941 0 0 1-5.066-1.538 6.167 6.167 0 0 1-1.634-1.662 8.307 8.307 0 0 1-.297-.421c-.937-1.425-1.103-2.85-1.103-7.679v-22.7c0-2.681.162-4.465.54-5.847a8.234 8.234 0 0 1 .86-2.053c1.2-2.1 3.7-3.3 6.7-3.3a9.192 9.192 0 0 1 3.315.591 7.04 7.04 0 0 1 2.785 1.909 6.754 6.754 0 0 1 1.558 2.985c.316 1.252.442 2.856.442 5.115z"></path></svg>
+                                    </div>
+                                    <div class="flex alitct jtfctct w1r">
+                                        <svg viewBox="0 0 41.701 69.001" role="img" class="fill w0p7r h1r stardust-icon stardust-icon-zoom"><path fill-rule="evenodd" stroke-linecap="round" stroke-width=".945" d="M.001 23.201v21.3a86.087 86.087 0 0 0 .141 5.239c.24 3.911.8 6.807 1.788 9.131a13.986 13.986 0 0 0 3.071 4.53c3.183 3.183 8.009 5.116 13.716 5.52a32.308 32.308 0 0 0 2.284.08 27.934 27.934 0 0 0 6.391-.693c2.999-.704 5.593-1.942 7.767-3.697a17.608 17.608 0 0 0 1.042-.91 16.219 16.219 0 0 0 4.725-8.397c.365-1.533.594-3.225.702-5.11a47.264 47.264 0 0 0 .073-2.693v-25.9c0-4.153-.458-7.389-1.5-10.073a15.929 15.929 0 0 0-4.5-6.327A20.063 20.063 0 0 0 26.805.689a27.077 27.077 0 0 0-6.204-.688c-6.7 0-12.5 2.2-16.1 6.2C1.536 9.443.202 13.886.022 21.359a76.328 76.328 0 0 0-.021 1.842zm29.1-.6v23.2a49.403 49.403 0 0 1-.043 2.168c-.07 1.589-.23 2.783-.497 3.768a8.197 8.197 0 0 1-.86 2.064 7.193 7.193 0 0 1-3.81 2.919 8.858 8.858 0 0 1-2.89.481 8.941 8.941 0 0 1-5.066-1.538 6.167 6.167 0 0 1-1.634-1.662 8.307 8.307 0 0 1-.297-.421c-.937-1.425-1.103-2.85-1.103-7.679v-22.7c0-2.681.162-4.465.54-5.847a8.234 8.234 0 0 1 .86-2.053c1.2-2.1 3.7-3.3 6.7-3.3a9.192 9.192 0 0 1 3.315.591 7.04 7.04 0 0 1 2.785 1.909 6.754 6.754 0 0 1 1.558 2.985c.316 1.252.442 2.856.442 5.115z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <a class="text-dec flex cle alitct" href="#">
+                                <span class="fs1p4r mgr0p5r">Xem Tat Ca</span>
+                                <svg enable-background="new 0 0 13 21" viewBox="0 0 13 21" x="0" y="0" class="fcle h1p2r shopee-svg-icon icon-arrow-right-bold"><polygon points="11.1 9.9 2.1 .9 -.1 3.1 7.9 11 -.1 18.9 2.1 21 11.1 12 12.1 11"></polygon></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pstrlt">
+                        <ul class="fourul flex lsn">
+                            <li>
+                                <div>
+                                    <a href="#" class="ab text-dec flex backgr-color-fff posi-re pdbt1r">
+                                        <div class="posi-re">
+                                            <div class="posi-ab w100p h100p" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-c5836b770f3baf5654ccbe61c031b573_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                            <div class="w15r h15r" style="background-image: url('https://cf.shopee.vn/file/sg-11134201-22120-jjstpn1xejlvd0_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="abe v-center jus-center fldrtcl w100p">
+                                            <p class="talct price pdbt0p8r">
+                                                <span>₫</span><span>398.000</span>
+                                            </p>
+                                            <div class="posi-re w100p h1p6r">
+                                                <div class="sale posi-ab wihr hihr flex jtfctct alitct zid2 clw">DA BAN 35</div>
+                                                <div class="posi-ab er" style="background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png')"></div>
+                                                <div class="posi-ab ee"></div>
+                                            </div>
+                                        </div>
+                                        <div class="posi-ab faw">
+                                            <div class="fa fas atd ats after">
+                                                <div class="talct pdt0p5r">
+                                                    <span class="cle">50%</span>
+                                                    <span class="block mgt0p5r clw">GIAM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a href="#" class="ab text-dec flex backgr-color-fff posi-re pdbt1r">
+                                        <div class="posi-re">
+                                            <div class="posi-ab w100p h100p" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-920aec43a1b8105ef633011eedfa58dc_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                            <div class="w15r h15r" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-279a4ff1aee7953eff05a8d75b75e5bd_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="abe v-center jus-center fldrtcl w100p">
+                                            <p class="talct price pdbt0p8r">
+                                                <span>₫</span><span>128.0000</span>
+                                            </p>
+                                            <div class="posi-re w100p h1p6r">
+                                                <div class="sale posi-ab wihr hihr flex jtfctct alitct zid2 clw">DA BAN 37</div>
+                                                <div class="posi-ab er" style="width: 40%; background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png')"></div>
+                                                <div class="posi-ab ee"></div>
+                                            </div>
+                                        </div>
+                                        <div class="posi-ab faw">
+                                            <div class="fa fas atd ats after">
+                                                <div class="talct pdt0p5r">
+                                                    <span class="cle">57%</span>
+                                                    <span class="block mgt0p5r clw">GIAM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a href="#" class="ab text-dec flex backgr-color-fff posi-re pdbt1r">
+                                        <div class="posi-re">
+                                            <div class="posi-ab w100p h100p" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-920aec43a1b8105ef633011eedfa58dc_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                            <div class="w15r h15r" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-6ae2c8ed10629be453f1c03778cb9ecc_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="abe v-center jus-center fldrtcl w100p">
+                                            <p class="talct price pdbt0p8r">
+                                                <span>₫</span><span>329.000</span>
+                                            </p>
+                                            <div class="posi-re w100p h1p6r">
+                                                <div class="sale posi-ab wihr hihr flex jtfctct alitct zid2 clw">DA BAN 30</div>
+                                                <div class="posi-ab er" style="width: 9%; background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png')"></div>
+                                                <div class="posi-ab ee"></div>
+                                            </div>
+                                        </div>
+                                        <div class="posi-ab faw">
+                                            <div class="fa fas atd ats after">
+                                                <div class="talct pdt0p5r">
+                                                    <span class="cle">59%</span>
+                                                    <span class="block mgt0p5r clw">GIAM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a href="#" class="ab text-dec flex backgr-color-fff posi-re pdbt1r">
+                                        <div class="posi-re">
+                                            <div class="posi-ab w100p h100p" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-c5836b770f3baf5654ccbe61c031b573_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                            <div class="w15r h15r" style="background-image: url('https://cf.shopee.vn/file/sg-11134201-22110-3nb7lly2nfjva6_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="abe v-center jus-center fldrtcl w100p">
+                                            <p class="talct price pdbt0p8r">
+                                                <span>₫</span><span>412.000</span>
+                                            </p>
+                                            <div class="posi-re w100p h1p6r">
+                                                <div class="sale posi-ab wihr hihr flex jtfctct alitct zid2 clw">DANG BAN CHAY</div>
+                                                <div class="posi-ab er" style="width: 9%; background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png')"></div>
+                                                <div class="posi-ab ee"></div>
+                                            </div>
+                                        </div>
+                                        <div class="posi-ab faw">
+                                            <div class="fa fas atd ats after">
+                                                <div class="talct pdt0p5r">
+                                                    <span class="cle">15%</span>
+                                                    <span class="block mgt0p5r clw">GIAM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a href="#" class="ab text-dec flex backgr-color-fff posi-re pdbt1r">
+                                        <div class="posi-re">
+                                            <div class="posi-ab w100p h100p" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-9bd75f5159e127b072fb350943bf89e9_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                            <div class="w15r h15r" style="background-image: url('https://cf.shopee.vn/file/sg-11134201-22120-8m03mow1jpkv31_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="abe v-center jus-center fldrtcl w100p">
+                                            <p class="talct price pdbt0p8r">
+                                                <span>₫</span><span>760.000</span>
+                                            </p>
+                                            <div class="posi-re w100p h1p6r">
+                                                <div class="sale posi-ab wihr hihr flex jtfctct alitct zid2 clw">DANG BAN CHAY</div>
+                                                <div class="posi-ab er" style="width: 11%; background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png')"></div>
+                                                <div class="posi-ab ee"></div>
+                                            </div>
+                                        </div>
+                                        <div class="posi-ab faw">
+                                            <div class="fa fas atd ats after">
+                                                <div class="talct pdt0p5r">
+                                                    <span class="cle">49%</span>
+                                                    <span class="block mgt0p5r clw">GIAM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a href="#" class="ab text-dec flex backgr-color-fff posi-re pdbt1r">
+                                        <div class="posi-re">
+                                            <div class="posi-ab w100p h100p" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-c5836b770f3baf5654ccbe61c031b573_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                            <div class="w15r h15r" style="background-image: url('https://cf.shopee.vn/file/4cb07ccedd96e809762c05dac3293102_tn'); background-size: contain; background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="abe v-center jus-center fldrtcl w100p">
+                                            <p class="talct price pdbt0p8r">
+                                                <span>₫</span><span>65.280</span>
+                                            </p>
+                                            <div class="posi-re w100p h1p6r">
+                                                <div class="sale posi-ab wihr hihr flex jtfctct alitct zid2 clw">DANG BAN CHAY</div>
+                                                <div class="posi-ab er" style="width: 9%; background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/ac7f81d9ee062223753413ec98497a86.png')"></div>
+                                                <div class="posi-ab ee"></div>
+                                            </div>
+                                        </div>
+                                        <div class="posi-ab faw">
+                                            <div class="fa fas atd ats after">
+                                                <div class="talct pdt0p5r">
+                                                    <span class="cle">32%</span>
+                                                    <span class="block mgt0p5r clw">GIAM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="pstasl right t41p">
+                            <svg enable-background="new 0 0 13 21" viewBox="0 0 13 21" x="0" y="0" class="shopee-svg-icon icon-arrow-right-bold svr"><polygon points="11.1 9.9 2.1 .9 -.1 3.1 7.9 11 -.1 18.9 2.1 21 11.1 12 12.1 11"></polygon></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="five">
+                <div class="mw120r mgat mgt2r">
+                    <div class="w100p h11p1r flex" style="background-image: url('https://cf.shopee.vn/file/sg-50009109-afa866049de4349af32f1414248e61ba'); background-size: contain; background-repeat: no-repeat;">
+                        <a class="block fg33p3333" href="#"></a>
+                        <a class="block fg33p3333" href="#"></a>
+                        <a class="block fg33p3333" href="#"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="six">
+                <div class="container-wrapper backgr-color-fff mgt2r pstrlt">
+                    <div class="flex h7r alitct pdr2r pdl2r bdbt">
+                        <div class="flex-1 flex">
+                            <a class="block text-dec fs1p7r ttfupc cld0011b" href="#">shopee mall</a>
+                            <div class="flex alitct sixc">
+                                <div class="flex alitct jtfctct mgr1p5r">
+                                    <div class="flex alitct jtfctct">
+                                        <img class="siximd" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/6c502a2641457578b0d5f5153b53dd5d.png">
+                                    </div>
+                                    <div class="sixd flex alitct jtfctct">
+                                        <p>7 Ngay Mien Phi Tra Hang</p>
+                                    </div>
+                                </div>
+                                <div class="flex alitct jtfctct mgr1p5r">
+                                    <div class="flex alitct jtfctct">
+                                        <img class="siximd" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/511aca04cc3ba9234ab0e4fcf20768a2.png">
+                                    </div>
+                                    <div class="sixd flex alitct jtfctct">
+                                        <p>Hang Chinh Hang 100%</p>
+                                    </div>
+                                </div>
+                                <div class="flex alitct jtfctct">
+                                    <div class="flex alitct jtfctct">
+                                        <img class="siximd" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/16ead7e0a68c3cff9f32910e4be08122.png">
+                                    </div>
+                                    <div class="sixd flex alitct jtfctct">
+                                        <p>Mien Phi Van Chuyen</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <a class="text-dec flex cld0011b alitct" href="#">
+                                <span class="fs1p4r mgr0p5r">Xem Tat Ca</span>
+                                <div class="sixr flex jtfctct alitct bdrdu50p">
+                                    <svg enable-background="new 0 0 13 21" viewBox="0 0 13 21" x="0" y="0" class="fill w0p5r h1p2r shopee-svg-icon icon-arrow-right-bold"><polygon points="11.1 9.9 2.1 .9 -.1 3.1 7.9 11 -.1 18.9 2.1 21 11.1 12 12.1 11"></polygon></svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex h47r mgt1r">
+                        <div class="flex-1">
+                            <a class="full block" href="#" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-a25d4b307f2a2649b0e81208803bf91e'); background-size: contain;"></a>
+                        </div>
+                        <ul class="flex lsn f2">
+                            <li class="w25p">
+                                <div class="h100p">
+                                    <a class="block text-dec h50p" href="#">
+                                        <div class="flex alitct jtfctct fldrtcl">
+                                            <div class="w100p flex jtfctct">
+                                                <div class="sixim" style="background-image: url('https://cf.shopee.vn/file/vn-50009109-63819c12eb70fa1436118c1ed9fbc3b4_xhdpi'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            </div>
+                                            <div class="fs1p4r pdbt1r color-3 talct w100p flex jtfctct">
+                                                <p class="sixt">S23 Series</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="block text-dec h50p" href="#">
+                                        <div class="flex alitct jtfctct fldrtcl">
+                                            <div class="w100p flex jtfctct">
+                                                <div class="sixim" style="background-image: url('https://cf.shopee.vn/file/0b7528892f34b1ceb5e7e3883c34adb1_xhdpi'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            </div>
+                                            <div class="fs1p4r pdbt1r color-3 talct w100p flex jtfctct">
+                                                <p class="sixt">Noi y Sabina 9K</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="w25p">
+                                <div class="h100p">
+                                    <a class="block text-dec h50p" href="#">
+                                        <div class="flex alitct jtfctct fldrtcl">
+                                            <div class="w100p flex jtfctct">
+                                                <div class="sixim" style="background-image: url('https://cf.shopee.vn/file/c7b843e477e90f2a0ead5675b457f71a_xhdpi'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            </div>
+                                            <div class="fs1p4r pdbt1r color-3 talct w100p flex jtfctct">
+                                                <p class="sixt">Mua la co qua</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="block text-dec h50p" href="#">
+                                        <div class="flex alitct jtfctct fldrtcl">
+                                            <div class="w100p flex jtfctct">
+                                                <div class="sixim" style="background-image: url('https://cf.shopee.vn/file/6074cc75484d535e4de665bce62fe879_xhdpi'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            </div>
+                                            <div class="fs1p4r pdbt1r color-3 talct w100p flex jtfctct">
+                                                <p class="sixt">Da xinh qua xin</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="w25p">
+                                <div class="h100p">
+                                    <a class="block text-dec h50p" href="#">
+                                        <div class="flex alitct jtfctct fldrtcl">
+                                            <div class="w100p flex jtfctct">
+                                                <div class="sixim" style="background-image: url('https://cf.shopee.vn/file/be691f1a5b5a715c933e55f7fd2d7f0b_xhdpi'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            </div>
+                                            <div class="fs1p4r pdbt1r color-3 talct w100p flex jtfctct">
+                                                <p class="sixt">Sale chao he 50%</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="block text-dec h50p" href="#">
+                                        <div class="flex alitct jtfctct fldrtcl">
+                                            <div class="w100p flex jtfctct">
+                                                <div class="sixim" style="background-image: url('https://cf.shopee.vn/file/c2091ad7aa1f207aabbab9d112f6cfa4_xhdpi'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            </div>
+                                            <div class="fs1p4r pdbt1r color-3 talct w100p flex jtfctct">
+                                                <p class="sixt">Mua la co qua</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="w25p">
+                                <div class="h100p">
+                                    <a class="block text-dec h50p" href="#">
+                                        <div class="flex alitct jtfctct fldrtcl">
+                                            <div class="w100p flex jtfctct">
+                                                <div class="sixim" style="background-image: url('https://cf.shopee.vn/file/ee98c39797a226f6528a154a36303104_xhdpi'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            </div>
+                                            <div class="fs1p4r pdbt1r color-3 talct w100p flex jtfctct">
+                                                <p class="sixt">Sieu uu dai doc quyen</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="block text-dec h50p" href="#">
+                                        <div class="flex alitct jtfctct fldrtcl">
+                                            <div class="w100p flex jtfctct">
+                                                <div class="sixim" style="background-image: url('https://cf.shopee.vn/file/00413fcf230d45da42838f70129559e5_xhdpi'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            </div>
+                                            <div class="fs1p4r pdbt1r color-3 talct w100p flex jtfctct">
+                                                <p class="sixt">Uu dai den 40%</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="pstasl right t54p">
+                            <svg enable-background="new 0 0 13 21" viewBox="0 0 13 21" x="0" y="0" class="shopee-svg-icon icon-arrow-right-bold svr"><polygon points="11.1 9.9 2.1 .9 -.1 3.1 7.9 11 -.1 18.9 2.1 21 11.1 12 12.1 11"></polygon></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seven">
+                <div class="mw120r mgat backgr-color-fff mgt2r">
+                    <div class="flex h7r alitct pdr2r pdl2r bdbt">
+                        <div class="flex-1 flex">
+                            <div class="ttfupc cle fs1p7r">tim kiem hang dau</div>
+                        </div>
+                        <div>
+                            <a class="text-dec flex cle alitct" href="#">
+                                <span class="fs1p4r mgr0p5r">Xem Tat Ca</span>
+                                <svg enable-background="new 0 0 13 21" viewBox="0 0 13 21" x="0" y="0" class="fcle h1p2r shopee-svg-icon icon-arrow-right-bold"><polygon points="11.1 9.9 2.1 .9 -.1 3.1 7.9 11 -.1 18.9 2.1 21 11.1 12 12.1 11"></polygon></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pstrlt">
+                        <ul class="fourul flex lsn">
+                            <li>
+                                <div>
+                                    <a href="#" class="sevenc fldrtcl text-dec flex backgr-color-fff posi-re">
+                                        <div class="posi-re flex jtfctct">
+                                            <div class="posi-ab sevent" style="background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/06720e49514cbd94b7552496b4de454a.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                                            <div class="sevenim" style="background-image: url('https://cf.shopee.vn/file/63d7bef820b88a57b5ae4713eb2d20d7'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            <div class="seventa talct pstasl clw w100p">Ban 57k+ / thang</div>
+                                        </div>
+                                        <div class="sevenn">Ao Thun Local Brand</div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a href="#" class="sevenc fldrtcl text-dec flex backgr-color-fff posi-re">
+                                        <div class="posi-re flex jtfctct">
+                                            <div class="posi-ab sevent" style="background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/06720e49514cbd94b7552496b4de454a.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                                            <div class="sevenim" style="background-image: url('https://cf.shopee.vn/file/8e78019372e7c63a5c2f372d35532e56'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            <div class="seventa talct pstasl clw w100p">Ban 54k+ / thang</div>
+                                        </div>
+                                        <div class="sevenn">Ba Lo Thoi Trang</div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a href="#" class="sevenc fldrtcl text-dec flex backgr-color-fff posi-re">
+                                        <div class="posi-re flex jtfctct">
+                                            <div class="posi-ab sevent" style="background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/06720e49514cbd94b7552496b4de454a.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                                            <div class="sevenim" style="background-image: url('https://cf.shopee.vn/file/ce3aedb12a4bdd13b7ebb1988b171eef'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            <div class="seventa talct pstasl clw w100p">Ban 76k+ / thang</div>
+                                        </div>
+                                        <div class="sevenn">But Muc Gel</div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a href="#" class="sevenc fldrtcl text-dec flex backgr-color-fff posi-re">
+                                        <div class="posi-re flex jtfctct">
+                                            <div class="posi-ab sevent" style="background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/06720e49514cbd94b7552496b4de454a.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                                            <div class="sevenim" style="background-image: url('https://cf.shopee.vn/file/6c5aca08353bc35eb864ba2f312de3bf'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            <div class="seventa talct pstasl clw w100p">Ban 59k+ / thang</div>
+                                        </div>
+                                        <div class="sevenn">Do Choi Lego</div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a href="#" class="sevenc fldrtcl text-dec flex backgr-color-fff posi-re">
+                                        <div class="posi-re flex jtfctct">
+                                            <div class="posi-ab sevent" style="background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/06720e49514cbd94b7552496b4de454a.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                                            <div class="sevenim" style="background-image: url('https://cf.shopee.vn/file/c8169887b60e20a161d0288e6f9a193e'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            <div class="seventa talct pstasl clw w100p">Ban 102k+ / thang</div>
+                                        </div>
+                                        <div class="sevenn">Son Kem Li</div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a href="#" class="sevenc fldrtcl text-dec flex backgr-color-fff posi-re">
+                                        <div class="posi-re flex jtfctct">
+                                            <div class="posi-ab sevent" style="background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/06720e49514cbd94b7552496b4de454a.png'); background-size: contain; background-repeat: no-repeat;"></div>
+                                            <div class="sevenim" style="background-image: url('https://cf.shopee.vn/file/333e69ee8a9fdef48dd8ef0bebb554b2'); background-size: cover; background-repeat: no-repeat;"></div>
+                                            <div class="seventa talct pstasl clw w100p">Ban 40k+ / thang</div>
+                                        </div>
+                                        <div class="sevenn">Ong Quan Loe</div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="pstasl right t41p">
+                            <svg enable-background="new 0 0 13 21" viewBox="0 0 13 21" x="0" y="0" class="shopee-svg-icon icon-arrow-right-bold svr"><polygon points="11.1 9.9 2.1 .9 -.1 3.1 7.9 11 -.1 18.9 2.1 21 11.1 12 12.1 11"></polygon></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="eight">
+                <div class="containerWrapper" style="position: sticky;">
+                    <div class="eightText">Goi y hom nay</div>
+                    <div class="lineBottom"></div>
+                </div>
+            </div>
+            <div class="nine">
+                <div class="containerWrapperSimple">
+                    <div class="flex flexWrap">
+                        <div class="cardWrapper6 posi-re">
+                            <a class="cardLink hover block w100p backgr-color-fff text-dec posi-re" href="#">
+                                <div class="posi-re w100p">
+                                    <img class="cardImage posi-ab" src="https://cf.shopee.vn/file/4790b5bf240feb8ac42fbb22ed9d6cf0">
+                                    <img class="cardImage" src="https://cf.shopee.vn/file/b077345cd61d4c72dda993b08ddeadf4_tn">
+                                    <div class="cardFlug posi-ab">
+                                        <p class="clw">Favoured+</p>
+                                    </div>
+                                    <div class="cardDownWrapper posi-ab">
+                                        <div class="cardDownContent">
+                                            <p class="cle">50%</p>
+                                            <p class="clw ttfupc">Giam</p>
+                                        </div>
+                                        <div class="cardDownEnd"></div>
+                                    </div>
+                                </div>
+                                <div style="padding: .8rem;">
+                                    <div class="cardDescription">Ban chai danh rang dien IPX7, Ban chai dien tu dong chong nuoc kem tang them dau chai men</div>
+                                    <div class="cardPriceWrapper">
+                                        <div class="cardPrice">
+                                            <span>₫</span><span style="font-size: 1.6rem;">4.999</span>
+                                        </div>
+                                        <div class="cardSaled">
+                                            <span style="margin-right: .2rem; font-size: 1.2rem;">Da ban</span><span>1,6</span><span>k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSearchProduct dis-none posi-ab">Tim san pham tuong tu</div>
+                            </a>
+                        </div>
+                        <div class="cardWrapper6">
+                            <a class="block hover w100p backgr-color-fff text-dec posi-re" href="#">
+                                <div class="posi-re w100p">
+                                    <img class="cardImage posi-ab" src="https://cf.shopee.vn/file/f50d3de19fd4d435d3a76abc49441967">
+                                    <img class="cardImage" src="https://cf.shopee.vn/file/sg-11134201-22110-zhhs4jjweojv50_tn">
+                                    <div class="cardFlug posi-ab">
+                                        <p class="clw">Mall</p>
+                                    </div>
+                                </div>
+                                <div style="padding: .8rem;">
+                                    <div class="cardDescription">Xe may Hon Da Wave Anpha 110cc 2023 phien ban dat biet</div>
+                                    <div class="cardPriceWrapper">
+                                        <div class="cardPrice">
+                                            <span>₫</span><span style="font-size: 1.6rem;">19.190.000</span>
+                                        </div>
+                                        <div class="cardSaled">
+                                            <span style="margin-right: .2rem; font-size: 1.2rem;">Da ban</span><span>3</span><span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSearchProduct dis-none posi-ab">Tim san pham tuong tu</div>
+                            </a>
+                        </div>
+                        <div class="cardWrapper6">
+                            <a class="block hover posi-re w100p backgr-color-fff text-dec" href="#">
+                                <div class="posi-re w100p">
+                                    <img class="cardImage posi-ab" src="https://cf.shopee.vn/file/vn-50009109-6440cb8dc11238b08ed388dfc656297a">
+                                    <img class="cardImage" src="https://cf.shopee.vn/file/828ce4b4bd89406a67206fbb9770c47b_tn">
+                                </div>
+                                <div style="padding: .8rem;">
+                                    <div class="cardDescription">[Chi giao HCM]Xoai xanh 1kg</div>
+                                    <div class="cardPriceWrapper">
+                                        <div class="cardPrice">
+                                            <span>₫</span><span style="font-size: 1.6rem;">20.000</span>
+                                        </div>
+                                        <div class="cardSaled">
+                                            <span style="margin-right: .2rem; font-size: 1.2rem;">Da ban</span><span>71</span><span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSearchProduct dis-none posi-ab">Tim san pham tuong tu</div>
+                            </a>
+                        </div>
+                        <div class="cardWrapper6">
+                            <a class="block hover posi-re w100p backgr-color-fff text-dec" href="#">
+                                <div class="posi-re w100p">
+                                    <img class="cardImage posi-ab" src="https://cf.shopee.vn/file/vn-50009109-77aa13df782b02c732659d18920fe71c">
+                                    <img class="cardImage" src="https://cf.shopee.vn/file/sg-11134201-23020-jxq799u5lbnve4_tn">
+                                </div>
+                                <div style="padding: .8rem;">
+                                    <div class="cardDescription">Tui xach nu mini cong so deo cheo dep di tiec di hoc di choi voi ban be</div>
+                                    <div class="cardPriceWrapper">
+                                        <div class="cardPrice">
+                                            <span>₫</span><span style="font-size: 1.6rem;">1.000</span>
+                                        </div>
+                                        <div class="cardSaled">
+                                            <span style="margin-right: .2rem; font-size: 1.2rem;">Da ban</span><span>91</span><span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSearchProduct dis-none posi-ab">Tim san pham tuong tu</div>
+                            </a>
+                        </div>
+                        <div class="cardWrapper6">
+                            <a class="block hover posi-re w100p backgr-color-fff text-dec" href="#">
+                                <div class="posi-re w100p">
+                                    <img class="cardImage posi-ab" src="https://cf.shopee.vn/file/ff358a1994dd5f3e643ebde68c6dc73e" alt="">
+                                    <img class="cardImage" src="https://cf.shopee.vn/file/8c90030247133c8fb363dfb1b4265c3f_tn" alt="">
+                                    <div class="cardFlug posi-ab">
+                                        <p class="clw">Favoured+</p>
+                                    </div>
+                                    <div class="cardDownWrapper posi-ab">
+                                        <div class="cardDownContent">
+                                            <p class="cle">50%</p>
+                                            <p class="clw ttfupc">Giam</p>
+                                        </div>
+                                        <div class="cardDownEnd"></div>
+                                    </div>
+                                </div>
+                                <div style="padding: .8rem;">
+                                    <div class="cardDescription">[Hang Co San] Vi da nam dung the Playboy chat luong</div>
+                                    <div class="cardPriceWrapper">
+                                        <div class="cardPrice">
+                                            <span>₫</span><span style="font-size: 1.6rem;">4.999</span>
+                                        </div>
+                                        <div class="cardSaled">
+                                            <span style="margin-right: .2rem; font-size: 1.2rem;">Da ban</span><span>1,6</span><span>k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSearchProduct dis-none posi-ab">Tim san pham tuong tu</div>
+                            </a>
+                        </div>
+                        <div class="cardWrapper6">
+                            <a class="block hover posi-re w100p backgr-color-fff text-dec" href="#">
+                                <div class="posi-re w100p">
+                                    <img class="cardImage posi-ab" src="https://cf.shopee.vn/file/vn-50009109-f25207c9ccb4783d2de0f1f856d19633" alt="">
+                                    <img class="cardImage" src="https://cf.shopee.vn/file/e83cde81f3d8049e34c9471c0c0c4932_tn" alt="">
+                                    <div class="cardDownWrapper posi-ab">
+                                        <div class="cardDownContent">
+                                            <p class="cle">50%</p>
+                                            <p class="clw ttfupc">Giam</p>
+                                        </div>
+                                        <div class="cardDownEnd"></div>
+                                    </div>
+                                </div>
+                                <div style="padding: .8rem;">
+                                    <div class="cardDescription">Ban chai danh rang dien IPX7, Ban chai dien tu dong chong nuoc kem tang them dau chai men</div>
+                                    <div class="cardPriceWrapper">
+                                        <div class="cardPrice">
+                                            <span>₫</span><span style="font-size: 1.6rem;">9.000</span>
+                                        </div>
+                                        <div class="cardSaled">
+                                            <span style="margin-right: .2rem; font-size: 1.2rem;">Da ban</span><span>3</span><span>k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSearchProduct dis-none posi-ab">Tim san pham tuong tu</div>
+                            </a>
+                        </div>
+                        <div class="cardWrapper6">
+                            <a class="block hover posi-re w100p backgr-color-fff text-dec" href="#">
+                                <div class="posi-re w100p">
+                                    <img class="cardImage posi-ab" src="https://cf.shopee.vn/file/vn-50009109-3822d1a7e67dc4504490eca11c28b5f1" alt="">
+                                    <img class="cardImage" src="https://cf.shopee.vn/file/sg-11134201-22110-gaepuaxnsijv2e_tn" alt="">
+                                    <div class="cardDownWrapper posi-ab">
+                                        <div class="cardDownContent">
+                                            <p class="cle">50%</p>
+                                            <p class="clw ttfupc">Giam</p>
+                                        </div>
+                                        <div class="cardDownEnd"></div>
+                                    </div>
+                                </div>
+                                <div style="padding: .8rem;">
+                                    <div class="cardDescription">Ban chai danh rang dien IPX7, Ban chai dien tu dong chong nuoc kem tang them dau chai men</div>
+                                    <div class="cardPriceWrapper">
+                                        <div class="cardPrice">
+                                            <span>₫</span><span style="font-size: 1.6rem;">9.000</span>
+                                        </div>
+                                        <div class="cardSaled">
+                                            <span style="margin-right: .2rem; font-size: 1.2rem;">Da ban</span><span>3</span><span>k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSearchProduct dis-none posi-ab">Tim san pham tuong tu</div>
+                            </a>
+                        </div>
+                        <div class="cardWrapper6">
+                            <a class="block hover posi-re w100p backgr-color-fff text-dec" href="#">
+                                <div class="posi-re w100p">
+                                    <img class="cardImage posi-ab" src="https://cf.shopee.vn/file/vn-50009109-f25207c9ccb4783d2de0f1f856d19633" alt="">
+                                    <img class="cardImage" src="https://cf.shopee.vn/file/7fa82133f15eb454ccdb2d2b896eb0aa_tn" alt="">
+                                    <div class="cardDownWrapper posi-ab">
+                                        <div class="cardDownContent">
+                                            <p class="cle">50%</p>
+                                            <p class="clw ttfupc">Giam</p>
+                                        </div>
+                                        <div class="cardDownEnd"></div>
+                                    </div>
+                                </div>
+                                <div style="padding: .8rem;">
+                                    <div class="cardDescription">Dep sandal be trai MG2-20 de chong tron truot quai ngang</div>
+                                    <div class="cardPriceWrapper">
+                                        <div class="cardPrice">
+                                            <span>₫</span><span style="font-size: 1.6rem;">59.500</span>
+                                        </div>
+                                        <div class="cardSaled">
+                                            <span style="margin-right: .2rem; font-size: 1.2rem;">Da ban</span><span>1,2</span><span>k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSearchProduct dis-none posi-ab">Tim san pham tuong tu</div>
+                            </a>
+                        </div>
+                        <div class="cardWrapper6">
+                            <a class="block hover posi-re w100p backgr-color-fff text-dec" href="#">
+                                <div class="posi-re w100p">
+                                    <img class="cardImage posi-ab" src="https://cf.shopee.vn/file/vn-50009109-6440cb8dc11238b08ed388dfc656297a">
+                                    <img class="cardImage" src="https://cf.shopee.vn/file/a80636786df6b7c05541320968851e3c_tn">
+                                    <div class="cardFlug posi-ab">
+                                        <p class="clw">Favoured+</p>
+                                    </div>
+                                    <div class="cardDownWrapper posi-ab">
+                                        <div class="cardDownContent">
+                                            <p class="cle">38%</p>
+                                            <p class="clw ttfupc">Giam</p>
+                                        </div>
+                                        <div class="cardDownEnd"></div>
+                                    </div>
+                                </div>
+                                <div style="padding: .8rem;">
+                                    <div class="cardDescription">Bo do the thao dien tu hoc xem day silicone dang noi tieng nam va nu</div>
+                                    <div class="cardPriceWrapper">
+                                        <div class="cardPrice">
+                                            <span>₫</span><span style="font-size: 1.6rem;">53.890</span>
+                                        </div>
+                                        <div class="cardSaled">
+                                            <span style="margin-right: .2rem; font-size: 1.2rem;">Da ban</span><span>1,1</span><span>k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSearchProduct dis-none posi-ab">Tim san pham tuong tu</div>
+                            </a>
+                        </div>
+                        <div class="cardWrapper6">
+                            <a class="block hover posi-re w100p backgr-color-fff text-dec" href="#">
+                                <div class="posi-re w100p">
+                                    <img class="cardImage posi-ab" src="https://cf.shopee.vn/file/vn-50009109-6440cb8dc11238b08ed388dfc656297a">
+                                    <img class="cardImage" src="https://cf.shopee.vn/file/sg-11134201-22120-8ia2miw2vnkv6f_tn">
+                                    <div class="cardFlug posi-ab">
+                                        <p class="clw">Favoured+</p>
+                                    </div>
+                                    <div class="cardDownWrapper posi-ab">
+                                        <div class="cardDownContent">
+                                            <p class="cle">40%</p>
+                                            <p class="clw ttfupc">Giam</p>
+                                        </div>
+                                        <div class="cardDownEnd"></div>
+                                    </div>
+                                </div>
+                                <div style="padding: .8rem;">
+                                    <div class="cardDescription">Bo do the thao dien tu hoc xem day silicone dang noi tieng nam va nu</div>
+                                    <div class="cardPriceWrapper">
+                                        <div class="cardPrice">
+                                            <span>₫</span><span style="font-size: 1.6rem;">40.390</span>
+                                        </div>
+                                        <div class="cardSaled">
+                                            <span style="margin-right: .2rem; font-size: 1.2rem;">Da ban</span><span>9,1</span><span>k</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSearchProduct dis-none posi-ab">Tim san pham tuong tu</div>
+                            </a>
+                        </div>
+                        <div class="cardWrapper6">
+                            <a class="block hover posi-re w100p backgr-color-fff text-dec" href="#">
+                                <div class="posi-re w100p">
+                                    <img class="cardImage" src="https://cf.shopee.vn/file/f71955a7680d36e43fb7bd045682d092_tn">
+                                </div>
+                                <div style="padding: .8rem;">
+                                    <div class="cardDescription">Shopshopads - 4 - Dam nu de thuong - Freesize</div>
+                                    <div class="cardPriceWrapper">
+                                        <div class="cardPrice">
+                                            <span>₫</span><span style="font-size: 1.6rem;">1.000</span>
+                                        </div>
+                                        <div class="cardSaled">
+                                            <span style="margin-right: .2rem; font-size: 1.2rem;">Da ban</span><span>7</span><span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSearchProduct dis-none posi-ab">Tim san pham tuong tu</div>
+                            </a>
+                        </div>
+                        <div class="cardWrapper6">
+                            <a class="block hover posi-re w100p backgr-color-fff text-dec" href="#">
+                                <div class="posi-re w100p">
+                                    <img class="cardImage posi-ab" src="https://cf.shopee.vn/file/ff358a1994dd5f3e643ebde68c6dc73e" alt="">
+                                    <img class="cardImage" src="https://cf.shopee.vn/file/1cd59b778bddacf79bbb686b715776bb_tn" alt="">
+                                    <div class="cardFlug posi-ab">
+                                        <p class="clw">Favoured+</p>
+                                    </div>
+                                    <div class="cardDownWrapper posi-ab">
+                                        <div class="cardDownContent">
+                                            <p class="cle">40%</p>
+                                            <p class="clw ttfupc">Giam</p>
+                                        </div>
+                                        <div class="cardDownEnd"></div>
+                                    </div>
+                                </div>
+                                <div style="padding: .8rem;">
+                                    <div class="cardDescription">{San kho} Mot doi vo goi coton Santin 45cm x 65cm mau do</div>
+                                    <div class="cardPriceWrapper">
+                                        <div class="cardPrice">
+                                            <span>₫</span><span style="font-size: 1.6rem;">12.000</span>
+                                        </div>
+                                        <div class="cardSaled">
+                                            <span style="margin-right: .2rem; font-size: 1.2rem;">Da ban</span><span>941</span><span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSearchProduct dis-none posi-ab">Tim san pham tuong tu</div>
+                            </a>
+                        </div>
+                        <div class="seeMore">
+                            <a class="a" href="#">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footerContainer">
+                <div class="footerOne w100p">
+                    <div class="containerWrapper">
+                        <div class="one">
+                            <div class="bdbt pdbt8r">
+                                <div class="pdt1p8r">
+                                    <h2 class="title">SHOPEE - GÌ CŨNG CÓ, MUA HẾT Ở SHOPEE</h2>
+                                    <p class="text">Shopee - ứng dụng mua sắm trực tuyến thú vị, tin cậy, an toàn và miễn phí! Shopee là nền tảng giao dịch trực tuyến hàng đầu ở Đông Nam Á, có trụ sở chính ở Singapore, đã có mặt ở khắp các khu vực Singapore, Malaysia, Indonesia, Thái Lan, Philippines, Đài Loan, Brazil, México & Colombia. Với sự đảm bảo của Shopee, bạn sẽ mua hàng trực tuyến an tâm và nhanh chóng hơn bao giờ hết!
+                                    </p>
+                                </div>
+                                <div class="pdt1p8r">
+                                    <h3 class="title">MUA SẮM VÀ BÁN HÀNG ONLINE ĐƠN GIẢN, NHANH CHÓNG VÀ AN TOÀN</h3>
+                                    <p class="text">Nếu bạn đang tìm kiếm một trang web để mua và bán hàng trực tuyến thì Shopee.vn là một sự lựa chọn tuyệt vời dành cho bạn. Shopee là trang thương mại điện tử cho phép người mua và người bán tương tác và trao đổi dễ dàng thông tin về sản phẩm và chương trình khuyến mãi của shop. Do đó, việc mua bán trên Shopee trở nên nhanh chóng và đơn giản hơn. Bạn có thể trò chuyện trực tiếp với nhà bán hàng để hỏi trực tiếp về mặt hàng cần mua. Còn nếu bạn muốn tìm mua những dòng sản phẩm chính hãng, uy tín, Shopee Mall chính là sự lựa chọn lí tưởng dành cho bạn. Để bạn có thể dễ dàng khi tìm hiểu và sử dụng sản phẩm, Shopee Blog - trang blog thông tin chính thức của Shopee - sẽ giúp bạn có thể tìm được cho mình các kiến thức về xu hướng thời trang, review công nghệ, mẹo làm đẹp, tin tức tiêu dùng và deal giá tốt bất ngờ.</p>
+                                    <p class="text">Đến với Shopee, cơ hội để trở thành một nhà bán hàng dễ dàng hơn bao giờ hết. Chỉ với vài thao tác trên ứng dụng, bạn đã có thể đăng bán ngay những sản phẩm của mình. Không những thế, các nhà bán hàng có thể tự tạo chương trình khuyến mãi trên Shopee để thu hút người mua với những sản phẩm có mức giá hấp dẫn. Khi đăng nhập tại Shopee Kênh người bán, bạn có thể dễ dàng phân loại sản phẩm, theo dõi đơn hàng, chăm sóc khách hàng và cập nhập ngay các hoạt động của shop.</p>
+                                </div>
+                                <div class="pdt1p8r">
+                                    <h3 class="title">TẢI ỨNG DỤNG SHOPEE NGAY ĐỂ MUA BÁN ONLINE MỌI LÚC, MỌI NƠI</h3>
+                                    <p class="text">Ưu điểm của ứng dụng Shopee là cho phép bạn mua và bán hàng mọi lúc, mọi nơi. Bạn có thể tải ứng dụng Shopee cũng như đăng sản phẩm bán hàng một cách nhanh chóng và tiện lợi. Ngoài ra, ứng dụng Shopee còn có những ưu điểm sau:</p>
+                                    <ul class="text pdl4r">
+                                        <li>Giao diện thân thiện, đơn giản, dễ sử dụng. Bạn sẽ dễ dàng thấy được ngay những sản phẩm nổi bật cũng như dễ dàng tìm đến các ô tìm kiếm, giỏ hàng hoặc tính năng chat liền tay.
+                                        </li>
+                                        <li class="text">Ứng dụng tích hợp công nghệ quản lý đơn mua và bán hàng tiện lợi trên cùng một tài khoản. Bạn sẽ vừa là người mua hàng, vừa là người bán hàng rất linh hoạt, dễ dàng.
+                                        </li>
+                                        <li class="text">Cập nhập thông tin khuyến mãi, Shopee Flash Sale nhanh chóng và liên tục.</li>
+                                    </ul>
+                                    <p class="text">Tại Shopee, bạn có thể lưu các mã giảm giá Shopee và mã miễn phí vận chuyển toàn quốc. Bên cạnh đó, Shopee cũng sẽ có những chiến dịch khuyến mãi lớn hằng năm như Shopee 2.2, Siêu hội tiêu dùng 15.3, Shopee 4.4 sale, Shopee 5.5 sale, Shopee sale 7.7, Shopee sale 8.8, Shopee sale 9.9, Shopee 10.10 sale, Shopee 11.11 sale, Shopee Sale sinh nhật; Khuyến Mãi Tết thả ga săn sale quà Tết chất lượng. Đây là thời điểm để người mua hàng có thể nhanh tay chọn ngay cho mình những mặt hàng ưa thích với mức giá giảm kỉ lục. Ngoài ra, bạn còn có thể thỏa thích săn sale vào các ngày trong tháng như Sale giữa tháng và Sale cuối tháng đón lương về.</p>
+                                </div>
+                                <div class="pdt1p8r">
+                                    <h3 class="title">MUA HÀNG HIỆU CAO CẤP GIÁ TỐT TẠI SHOPEE</h3>
+                                    <p class="text">Bên cạnh Shopee Premium, Shopee còn có rất nhiều khuyến mãi khủng cho hàng hiệu giảm đến 50%. Cộng với mã giao hàng miễn phí, Shopee cũng có các mã giảm giá được phân phối mỗi tháng từ rất nhiều gian hàng chính hãng tham gia chương trình khuyến mãi này. Bên cạnh đó, Shopee còn tập hợp rất nhiều thương hiệu đình đám được các nhà bán lẻ uy tín phân phối bán trên Shopee, top sản phẩm hot deal cho bạn săn sale luôn cập nhật mỗi giờ, mỗi ngày, đem đến cho bạn sự lựa chọn đa dạng, từ các hãng mỹ phẩm nổi tiếng hàng đầu như Kiehl's, MAC, Foreo, SK-II, Estee Lauder,... Đến những thương hiệu công nghệ nổi tiếng như: camera hành trình Gopro, máy ảnh Fuifilm, webcam Hikvision, máy đọc sách Kindle,... Tại Shopee, bạn có thể dễ dàng tìm thấy các thương hiệu giày thể thao phổ biến hiện nay như: New Balance, Nike, Vans, Crocs,...  
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="one">
+                                <h2 class="cl054">Danh Muc</h2>
+                                <div class="testtest flex w100p">
+                                    <ul class="ulFooterOne lsn w20p">
+                                        <li class="li pdt1p8r">
+                                            <a class="text-dec" href="#">
+                                                <h3 class="title">thoi trang nam</h3>
+                                            </a>
+                                            <div class="footerLink text text2">
+                                                <div>
+                                                    <a class="text-dec cl054 a" href="#">Ao khoac</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d cl054 a" href="#">Ao Vest va Blazer</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d cl054 a" href="#">Ao Hoodie, Ao len & Ao ni</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d cl054 a" href="#">Quan Jeans</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d cl054 a" href="#">Quan dai/Quan au</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d cl054 a" href="#">Quan short</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d cl054 a" href="#">Ao Ba lo</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-dec cl054 a" href="#">Ao khoac</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d cl054 a" href="#">Ao Vest va Blazer</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d cl054 a" href="#">Ao Hoodie, Ao len & Ao ni</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d cl054 a" href="#">Quan Jeans</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d cl054 a" href="#">Quan dai/Quan au</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d cl054 a" href="#">Quan short</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d cl054 a" href="#">Ao Ba lo</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="pdt1p8r">
+                                            <h3 class="title">nha cua & doi song</h3>
+                                            <div class="footerLink text text2">
+                                                <div>
+                                                    <a class="text-dec" href="#" style="color: rgba(0, 0, 0, .54);">Ao khoac</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d" href="#" style="color: rgba(0, 0, 0, .54);">Ao Vest va Blazer</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d" href="#" style="color: rgba(0, 0, 0, .54);">Ao Hoodie, Ao len & Ao ni</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d" href="#" style="color: rgba(0, 0, 0, .54);">Quan Jeans</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d" href="#" style="color: rgba(0, 0, 0, .54);">Quan dai/Quan au</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d" href="#" style="color: rgba(0, 0, 0, .54);">Quan short</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d" href="#" style="color: rgba(0, 0, 0, .54);">Ao Ba lo</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-dec" href="#" style="color: rgba(0, 0, 0, .54);">Ao khoac</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d" href="#" style="color: rgba(0, 0, 0, .54);">Ao Vest va Blazer</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d" href="#" style="color: rgba(0, 0, 0, .54);">Ao Hoodie, Ao len & Ao ni</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d" href="#" style="color: rgba(0, 0, 0, .54);">Quan Jeans</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d" href="#" style="color: rgba(0, 0, 0, .54);">Quan dai/Quan au</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d" href="#" style="color: rgba(0, 0, 0, .54);">Quan short</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                                <div>
+                                                    <a class="text-d" href="#" style="color: rgba(0, 0, 0, .54);">Ao Ba lo</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footerTwo w100p">
+                    <div class="container-wrapper pdt4r bdbt pdbt3r">
+                        <ul class="ulFooterTwoWrapper flex lsn ">
+                            <li class="li w20p">
+                                <h3>CHĂM SÓC KHÁCH HÀNG</h3>
+                                <ul class="ulFooterTwo lsn fs1p2r">
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">Trung tam tro Giup</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">Shopee Block</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">Shopee Mall</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">Huong Dan Mua Hang</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">Huong Dan Ban Hang</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">Thanh Toan</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">Shopee Xu</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">Van Chuyen</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">Tra Hang & Hoan Tien</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">Cham Soc Khach Hang</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">Chinh Sach Bao Hanh</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="li w20p">
+                                <h3 class="ttfupc">VỀ SHOPEE</h3>
+                                <ul class="ulFooterTwo lsn fs1p2r">
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">gioi thieu ve shopee viet nam</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">tuyen dung</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">dieu khoan shopee</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">chinh sach bao mat</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">chinh hang</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">kenh nguoi ban</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">Flash sales</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">chuong trinh tiep thi lien ket shopee</a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054" href="#">lien he voi truyen thong</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="li w20p">
+                                <h3 class="ttfupc">THANH TOÁN</h3>
+                                <ul class="ulFooterTwo lsn pdbt1p8r">
+                                    <li class="pdt0p8r li flex">
+                                        <img class="imageVisa" src="https://cf.shopee.vn/file/d4bbea4570b93bfd5fc652ca82a262a8" alt="logo">
+                                        <img class="imageVisa" src="https://cf.shopee.vn/file/a0a9062ebe19b45c1ae0506f16af5c16" alt="logo">
+                                        <img class="imageVisa" src="https://cf.shopee.vn/file/38fd98e55806c3b2e4535c4e4a6c4c08" alt="logo">
+                                    </li>
+                                    <li class="pdt0p8r li flex">
+                                        <img class="imageVisa" src="https://cf.shopee.vn/file/bc2a874caeee705449c164be385b796c" alt="logo">
+                                        <img class="imageVisa" src="https://cf.shopee.vn/file/2c46b83d84111ddc32cfd3b5995d9281" alt="logo">
+                                        <img class="imageVisa" src="https://cf.shopee.vn/file/5e3f0bee86058637ff23cfdf2e14ca09" alt="logo">
+                                    </li>
+                                    <li class="pdt0p8r li flex">
+                                        <img class="imageVisa" src="https://cf.shopee.vn/file/9263fa8c83628f5deff55e2a90758b06" alt="logo">
+                                        <img class="imageVisa" src="https://cf.shopee.vn/file/0217f1d345587aa0a300e69e2195c492" alt="logo">
+                                    </li>   
+                                </ul>
+                                <h3 class="ttfupc">ĐƠN VỊ VẬN CHUYỂN</h3>
+                                <ul class="ulFooterTwo lsn flex flexWrap pdt1p8r">
+                                    <img class="imageVisa mgbt1r" src="https://cf.shopee.vn/file/d10b0ec09f0322f9201a4f3daf378ed2" alt="logo">
+                                    <img class="imageVisa mgbt1r" src="https://cf.shopee.vn/file/77bf96a871418fbc21cc63dd39fb5f15" alt="logo">
+                                    <img class="imageVisa mgbt1r" src="https://cf.shopee.vn/file/59270fb2f3fbb7cbc92fca3877edde3f" alt="logo">
+                                    <img class="imageVisa mgbt1r" src="https://cf.shopee.vn/file/5e7282bd0f7ee0872fdb0bd1d40fbe9e" alt="logo">
+                                    <img class="imageVisa mgbt1r" src="https://cf.shopee.vn/file/957f4eec32b963115f952835c779cd2c" alt="logo">
+                                    <img class="imageVisa mgbt1r" src="https://cf.shopee.vn/file/0d349e22ca8d4337d11c9b134cf9fe63" alt="logo">
+                                    <img class="imageVisa mgbt1r" src="https://cf.shopee.vn/file/3900aefbf52b1c180ba66e5ec91190e5" alt="logo">
+                                    <img class="imageVisa mgbt1r" src="https://cf.shopee.vn/file/6e3be504f08f88a15a28a9a447d94d3d" alt="logo">
+                                    <img class="imageVisa mgbt1r" src="https://cf.shopee.vn/file/b8348201b4611fc3315b82765d35fc63" alt="logo">
+                                    <img class="imageVisa mgbt1r" src="https://cf.shopee.vn/file/0b3014da32de48c03340a4e4154328f6" alt="logo">
+                                </ul>
+                            </li>
+                            <li class="li w20p">
+                                <h3 class="ttfupc">THEO DÕI CHÚNG TÔI TRÊN</h3>
+                                <ul class="ulFooterTwo lsn fs1p2r">
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054 flex" href="#">
+                                            <img class="_6ZyW8Y mgr1r" src="https://cf.shopee.vn/file/2277b37437aa470fd1c71127c6ff8eb5">
+                                            <span>Facebook</span>
+                                        </a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054 flex" href="#">
+                                            <img class="_6ZyW8Y mgr1r" src="https://cf.shopee.vn/file/5973ebbc642ceee80a504a81203bfb91">
+                                            <span>Instagram</span>
+                                        </a>
+                                    </li>
+                                    <li class="li pdt1p3r">
+                                        <a class="text-dec cl054 flex" href="#">
+                                            <img class="_6ZyW8Y mgr1r" src="https://cf.shopee.vn/file/f4f86f1119712b553992a75493065d9a">
+                                            <span>LinkedIn</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="li w20p">
+                                <h3 class="ttfupc">TẢI ỨNG DỤNG SHOPEE NGAY THÔI</h3>
+                                <ul class="ulFooterTwo lsn fs1p2r">
+                                    <li class="li pdt1p3r flex">
+                                        <a class="text-dec cl054 mgr1r backgr-fff pd0p2r bdrdu0p2r bsd" href="#">
+                                            <img src="https://cf.shopee.vn/file/a5e589e8e118e937dc660f224b9a1472" alt="download_qr_code" class="ebQ6br">
+                                        </a>
+                                        <div>
+                                            <a class="backgr-fff bdrdu0p2r bsd flex pd0p2r" href="#">
+                                                <img src="https://cf.shopee.vn/file/ad01628e90ddf248076685f73497c163" alt="app">
+                                            </a>
+                                            <a class="mgt1r backgr-fff bdrdu0p2r bsd flex pd0p2r" href="#">
+                                                <img src="https://cf.shopee.vn/file/ae7dced05f7243d0f3171f786e123def" alt="app">
+                                            </a>
+                                            <a class="mgt1r backgr-fff bdrdu0p2r bsd flex pd0p2r" href="#">
+                                                <img src="https://cf.shopee.vn/file/35352374f39bdd03b25e7b83542b2cb0" alt="app">
+                                            </a>
+                                        </div>
+                                    </li>
+                        </ul>
+                        <div class="flex"></div>
+                    </div>
+                    <div class="container-wrapper flex pdt4r pdbt4r jus-space-bew f-s-1-4 cl054">
+                        <div>&copy; 2023 Shopee. Tất cả các quyền được bảo lưu.</div>
+                        <div class="flex">
+                            <p>Quốc gia & Khu vực:</p>
+                            <a href="#" class="contryLink text-dec cl054 block ttfcptl">singapore</a>
+                            <a href="#" class="contryLink text-dec cl054 block ttfcptl">Indonesia</a>
+                            <a href="#" class="contryLink text-dec cl054 block ttfcptl">dai loan</a>
+                            <a href="#" class="contryLink text-dec cl054 block ttfcptl">thai lan</a>
+                            <a href="#" class="contryLink text-dec cl054 block ttfcptl">malaysia</a>
+                            <a href="#" class="contryLink text-dec cl054 block ttfcptl">viet nam</a>
+                            <a href="#" class="contryLink text-dec cl054 block ttfcptl">philippines</a>
+                            <a href="#" class="contryLink text-dec cl054 block ttfcptl">brazil</a>
+                            <a href="#" class="contryLink text-dec cl054 block ttfcptl">mexico</a>
+                            <a href="#" class="contryLink text-dec cl054 block ttfcptl">colombia</a>
+                            <a href="#" class="contryLink text-dec cl054 block ttfcptl">chile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footerThree w100p bgclf5f5f5">
+                    <div class="container-wrapper pdt4r pdbt4r cl054">
+                        <div class="one flex jtfctct">
+                            <a class="oneA" href="#">chinh sach bao mat</a>
+                            <a class="oneA" href="#">quy che hoat dong</a>
+                            <a class="oneA" href="#">chinh sach van chuyen</a>
+                            <a class="oneA" href="#">chinh sach tra hang va hoan tien</a>
+                        </div>
+                        <div class="two flex jtfctct alitct mgt4r">
+                            <a class="twoA" href="#"></a>
+                            <a class="twoA" href="#"></a>
+                            <a class="twoA s" href="#"></a>
+                        </div>
+                        <div class="three talct fs1p2r pdt1r pdbt3r">Công ty TNHH Shopee</div>
+                        <div class="foure">
+                            <p>Địa chỉ: Tầng 4-5-6, Tòa nhà Capital Place, số 29 đường Liễu Giai, Phường Ngọc Khánh, Quận Ba Đình, Thành phố Hà Nội, Việt Nam. Tổng đài hỗ trợ: 19001221 - Email: cskh@hotro.shopee.vn</p>
+                            <p>Chịu Trách Nhiệm Quản Lý Nội Dung: Nguyễn Đức Trí - Điện thoại liên hệ: 024 73081221 (ext 4678)</p>
+                            <p>Mã số doanh nghiệp: 0106773786 do Sở Kế hoạch & Đầu tư TP Hà Nội cấp lần đầu ngày 10/02/2015</p>
+                            <p>&copy; 2015 - Bản quyền thuộc về Công ty TNHH Shopee</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        function showSearchList() {
+            const searchListWrapper = document.querySelector('.search-list-wrapper');
+            searchListWrapper.style.display = 'flex';
+        };
+        function hiddenSearchList() {
+            const searchListWrapper = document.querySelector('.search-list-wrapper');
+            searchListWrapper.style.display = 'none';
+        }
+        const data = {
+            footer: {
+                group: {
+                    title: ['thoi trang nam', 'nha cua & doi song', 'dong ho', 'phu kien & trang suc', 'ba lo & tui vi nam'],
+                    text: ['Ao khoac', 'Ao Vest va Blazer', 'Ao Hoodie, Ao len & Ao ni', 'Quan Jeans', 'Quan dai/Quan au', 'Quan short', 'Ao ba lo', 'Do lot', 'Do ngu', 'Do bo']
+                },
+                group2: {
+                    title: ['cham soc khach hang', 've shopee'],
+                    text: ['gioi thieu ve shopee viet nam', 'tuyen dung', 'dieu khoan shopee', 'chinh sach bao mat', 'chinh hang', 'kenh nguoi ban', 'flash sales', 'chuong trinh tiep thi lien ket shopee', 'lien he voi truyen thong']
+                }
+            }
+        };
+
+        function footer() {
+            let showElement = document.querySelector('.testtest');
+            let dataTitle = data.footer.group.title;
+            let dataText = data.footer.group.text;
+            let dataShow = [];
+
+            let tempText = dataText.map(item => {
+                return `
+                    <div>
+                        <a class="text-dec cl054 a" href="#">${item}</a>
+                    </div>
+                `;
+            }).join('<span>&nbsp;|&nbsp;</span>');
+
+            let tempLi = dataTitle.map(item => {
+                return `
+                    <li class="pdt1p8r">
+                        <a class="text-dec" href="#">
+                            <h3 class="title">${item}</h3>
+                        </a>
+                        <div class="footerLink text text2">
+                            ${tempText}
+                        </div>
+                    </li>
+                `;
+            }).join('');
+
+            for(let i = 0; i < 5; i++) {
+                dataShow.push(`<ul class="ulFooterOne lsn w20p">${tempLi}</ul>`);
+            }
+
+            showElement.innerHTML = dataShow.join('');
+        };
+        footer();
+    </script>
+</body>
+</html>
