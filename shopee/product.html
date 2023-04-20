@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html{
+        font-size: 62.5%;
+        font-family: sans-serif;
+    }
+    body{
+        background-color: #f5f5f5;
+    }
+    .flex{
+        display: flex;
+    }
+    .center{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .posi-re{
+        position: relative;
+    }
+    .posi-ab{
+        position: absolute;
+    }
+    a{
+        text-decoration: none;
+        font-size: 1.3rem;
+        color: rgb(0, 85, 170);
+        padding: 0 .5rem;
+    }
+    .wrapper{
+        max-width: 120rem;
+        margin: auto;
+    }
+    .topSvg{
+        display: flex;
+        align-items: center;
+        padding: 2rem 0;
+    }
+    .topSvg a:first-child{
+        padding-left: 0;
+    }
+    svg{
+        width: 1rem;
+    }
+    .topSvg p{
+        font-size: 1.5rem;
+        padding-left: .5rem;
+    }
+    .detail{
+        display: flex;
+        padding: 1.6rem;
+        background-color: #fff;
+    }
+    .i{
+        width: 38%;
+    }
+    .imageProduct{
+        width: 100%;
+        padding-top: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .i video{
+        width: 100%;
+        height: 45rem;
+    }
+    .iconPlay{
+        position:absolute;
+        width: 2rem;
+        height: 2rem;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-1rem, -1rem, 0);
+    }
+    .imageSmallWrapper{
+        overflow: hidden;
+    }
+    .imageSmall{
+        position: relative;
+        min-width: 20%;
+        padding: .4rem;
+    }
+    .imageSmall:first-child{
+        padding-left: 0;
+    }
+    .imageSmall:last-child{
+        padding-right: 0;
+    }
+    .imageSmall .imageProduct:hover{
+        cursor: pointer;
+        border: .2rem solid #ee4d2d;
+    }
+    .shareAndLike{
+        margin: 2rem 0;
+        justify-content: space-around;
+    }
+    .share a{
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-left: .5rem;
+        display: block;
+        background-position: 0 -100%;
+        background-size: 100%;
+        background-image: url('https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/1876c121524255f7eb6a64b4d8d0b7e3.png');
+    }
+    .share .facebook{
+        background-position: 0 0;
+    }
+    .share .pinterest{
+        background-position: 0 50%;
+    }
+    .share .twitter{
+        background-position: 0 100%;
+    }
+    .liked{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+    }
+    .liked svg{
+        width: 3.4rem;
+    }
+    .liked span,
+    .share span{
+        font-size: 1.6rem;
+        color:#222;
+    }
+    .r{
+        flex: 1;
+        padding: .5rem 3rem;
+    }
+    .r h1{
+        font-weight: 300;
+        color:#363636
+    }
+    .review{
+        margin: 1rem 0;
+        font-size: 1.6rem;
+        display: flex;
+    }
+    .review .starWrapper{
+        padding-left: 1.3rem;
+        padding-right: 2rem;
+        border-left: .1rem solid rgba(0, 0, 0, .18);
+    }
+    .review .starWrapper:first-child{
+        padding-left: 0;
+        border-left: none;
+    }
+    .review p{
+        color: #ee4d2d;
+        border-bottom: .1rem solid ;
+    }
+    .review p.b{
+        color: #333;
+    }
+    .review .starGroup{
+        padding: 0 .4rem;
+        font-size: 1.4rem;
+        color: #767676;
+    }
+    .review .starGroup.s{
+        padding-bottom: .4rem;
+    }
+    .review svg{
+        width: 1.7rem;
+        fill: #ee4d2d;
+        stroke: #ee4d2d;
+    }
+    .review .starK{
+        position: relative;
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+    .review .starK div{
+        position:absolute;
+        width: 46%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .review .iconHelp{
+        width: 1.4rem;
+        stroke: #767676;
+        fill: #767676;
+    }
+    .review a{
+        display: flex;
+        align-items: center;
+        font-size: 1.4rem;
+        margin-left: auto;
+        color: rgba(0, 0, 0, .54);
+    }
+    .priceWrapper{
+        display:flex;
+        align-items:center;
+        padding: 1.5rem 2rem;
+        background-color: #fafafa;
+    }
+    .downOutPrice{
+        font-size: 1.6rem;
+        text-decoration: line-through;
+        color:#929292;
+        margin-right: 1.5rem;
+    }
+    .price{
+        font-size: 3rem;
+        color:#ee4d2d;
+        margin-right: 1.5rem;
+    }
+    .percentDown{
+        padding: .1rem .4rem;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 600;
+        background-color: #ee4d2d;
+        border-radius: .2rem;
+    }
+    .deliver{
+        padding: 0 2rem;
+        font-size: 1.4rem;
+        color: #757575;
+    }
+    .deliver .w{
+        margin-top: 3rem;
+    }
+    .deliver .title{
+        min-width: 11rem;
+    }
+    .deliver .new{
+        color: #fff;
+        font-size: 1rem;
+        padding: 0 .5rem;
+        border-radius: .8rem;
+        border-bottom-left-radius: 0;
+        margin-left: .5rem;
+        line-height: 1.6rem;
+        background-color: #ee4d2d;
+    }
+    .deliver .more{
+        font-size: 1.4rem;
+        color:#08f;
+        margin-left: 1.4rem;
+    }
+    .deliver .deliverFree{
+        padding-left:1rem;
+    }
+    .deliver .flex.c{
+        margin-top: 1rem;
+    }
+    .iconShippingAirplane{
+        width: 2.5rem;
+        height: 2rem;
+        stroke: #000;
+    }
+    .deliverFree,
+    .deliverFree p span{
+        color:#222;
+    }
+    .deliverFree p span:first-child{
+        margin-right: 2rem;
+        color:#757575;
+    }
+    .deliverFree p.e{
+        margin-top: 1rem;
+    }
+    .deliverFree svg{
+        fill: #757575;
+        cursor: pointer;
+    }
+    .pointer{
+        cursor: pointer;
+    }
+    .btnGroup{
+        display:flex;
+        flex-wrap: wrap;
+    }
+    .btnGroup button{
+        position: relative;
+        min-width: 5rem;
+        min-height: 3rem;
+        padding: .5rem 1.6rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        background-color: transparent;
+        border: .1rem solid rgba(0, 0, 0, .09);
+        color: rgba(0, 0, 0, .8);
+        font-size: 1.4rem;
+        cursor: pointer;
+    }
+    .btnGroup button:hover{
+        color: #ee4d2d;
+        border-color: #ee4d2d;
+    }
+    .btnGroup .check{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 1.8rem;
+        height: 2rem;
+        overflow: hidden;
+    }
+    .btnGroup .check::after{
+        position: absolute;
+        content: '';
+        width: 2rem;
+        height: 3rem;
+        rotate: 45deg;
+        top: 32%;
+        right: -38%;
+        background-color: #ee4d2d;
+    }
+    .btnGroup .check svg{
+        position: absolute;
+        width: .9rem;
+        height: .8rem;
+        top: 55%;
+        right: 0;
+        fill: #fff;
+        z-index: 1;
+    }
+    .quanlityWrapper{
+        margin-top: 3rem;
+        display:flex;
+        align-items: center;
+    }
+    .quanlity{
+        display:flex;
+        align-items: center;
+    }
+    .quanlity button{
+        min-width: 3.4rem;
+        min-height: 3.4rem;
+        padding: 0;
+        margin: 0;
+    }
+    .quanlity button:hover{
+        border-color: rgba(0, 0, 0, .09);
+    }
+    .quanlity input{
+        width: 5rem;
+        height: 3.4rem;
+        border: .1rem solid rgba(0, 0, 0, .09);
+        text-align: center;
+    }
+    .quanlity p{
+        margin-left: 1.8rem;
+    }
+    .buyNow{
+        display:flex;
+        margin-top: 3rem;
+    }
+    .buyNow button{
+        display: flex;
+        align-items: center;
+        padding: 1.4rem 2rem;
+        color: #ee4d2d;
+        background-color: #ff57221a;
+        border: .1rem solid;
+        border-radius: .2rem;
+        font-size: 1.6rem;
+        margin-right: 1.4rem;
+    }
+    .buyNow button:hover{
+        opacity: .8;
+        cursor: pointer;
+    }
+    .buyNow button:last-child{
+        color:#fff;
+        background-color: #ee4d2d;
+        border: .1rem solid #ee4d2d;
+        text-transform: capitalize;
+    }
+    .buyNow svg{
+        width: 2rem;
+        stroke: #ee4d2d;
+        fill: #ee4d2d;
+    }
+    .buyNow span{
+        text-transform: capitalize;
+        padding-left: 1rem;
+    }
+    .r .shopeeC{
+        display: flex;
+        padding: 2.8rem 0 .8rem 2rem;
+        margin-top: 3rem;
+        border-top: .1rem solid rgba(0, 0, 0, .09);
+    }
+    .shopeeC img{
+        height: 2rem;
+    }
+    .shopeeC .l{
+        color:#222;
+        font-weight: 500;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        padding: 0 2rem 0 .5rem;
+    }
+    .shopeeC .sr{
+        color: rgba(0, 0, 0, .54);
+        font-size: 1.4rem;
+        line-height: 2rem;
+    }
+    .mgt1p7r{
+        margin-top: 1.7rem;
+    }
+    .onlineChatnow{
+        display:flex;
+        padding-right: .5rem;
+        border-right: .1rem solid rgba(0, 0, 0, .05);
+    }
+    .avatar{
+        width: 7.5rem;
+        height: 7.5rem;
+    }
+    .onlineChatnowRight{
+        padding: 0 2rem;
+        font-size: 1.4rem;
+    }
+    .avatarImage{
+        width: 100%;
+        border-radius: 50%;
+    }
+    .online45{
+        margin-top: .4rem;
+        color: #757575;
+    }
+    .mgt1r{
+        margin-top: 1rem;
+    }
+    .chatNowBtn{
+        display: inline-flex;
+        align-items: center;
+        padding: .8rem 1.5rem;
+        margin-right: .6rem;
+        color: #ee4d2d;
+        font-size: 1.4rem;
+        border: .1rem solid #ee4d2d;
+        background-color: #ff57221a;
+        cursor: pointer;
+    }
+    .seeShop{
+        color:#555;
+        border: .1rem solid rgba(0, 0, 0, .09);
+        padding: .8rem 1.5rem;
+        font-size: 1.4rem;
+        display: inline-flex;
+        align-items: center;
+    }
+    .iconChatNow{
+        fill: #ee4d2d;
+    }
+    .iconSeeShop{
+        width: 1.4rem;
+        height: 1.4rem;
+        margin-right: .5rem;
+    }
+    .onlineRight{
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: 0rem 3.125rem;
+        padding-left: 1.56rem;
+        color: rgba(0,0,0,.4);
+        flex: 1;
+    }
+    .onlineItem{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .label{
+        text-transform: capitalize;
+        color: rgba(0,0,0,.4);
+        font-size: 1.4rem;
+    }
+    .span{
+        font-size: 1.4rem;
+        color: #ee4d2d;
+    }
+    .backgrFff{
+        background-color: #fff;
+    }
+    .detailProduct{
+        width: 100%;
+        padding: 2rem;
+        padding-bottom: 0;
+    }
+    .titleProduct{
+        background: rgba(0,0,0,.02);
+        color: rgba(0,0,0,.87);
+        font-weight: 100;
+        padding: 1.5rem;
+        text-transform: capitalize;
+    }
+    .content{
+        margin: 3rem 2rem 2rem;
+    }
+    .content .item{
+        display:flex;
+        margin-bottom:1.7rem;
+    }
+    .labelS{
+        color: rgba(0,0,0,.4);
+        font-size: 1.5rem;
+        box-sizing: border-box;
+        width: 14.5rem;
+        padding-right: .75rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .cl{
+        font-size: 1.5rem;
+        color: rgba(0, 0, 0, .8);
+    }
+    .a{
+        color: #05a;
+        font-size: 1.5rem;
+    }
+    .a:first-child{
+        padding-left: 0;
+    }
+    .au{
+        white-space: pre-line;
+        color: rgba(0,0,0,.8);
+        font-size: 1.4rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.7;
+    }
+    .h1{
+        font-weight: 100;
+        margin-bottom: 1.5rem;
+    }
+    .reviewStar{
+        background-color: #fffbf8;
+        border: .1rem solid #f9ede5;
+        margin-bottom: 1.8rem;
+        display: flex;
+        align-items: center;
+        border-radius: .2rem;
+        padding: 2rem;
+    }
+    .reviewStar .left{
+        padding: 2rem;
+    }
+    .reviewStar .left .starNumberWrapper{
+        text-align: center;
+    }
+    .starNumber{
+        font-size: 3rem;
+        color: #ee4d2d;
+    }
+    .starText{
+        font-size: 2rem;
+        color: #ee4d2d;
+    }
+    .starGroupDetail{
+        margin-top: 1rem;
+    }
+    .starGroupDetail svg{
+        width: 2rem;
+        stroke: #ee4d2d;
+        fill: #ee4d2d;
+    }
+    .starRun{
+        position: relative;
+        width: 2rem;
+        height:2rem;
+    }
+    .starRun div{
+        position:absolute;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .starRun svg{
+        width: 2rem;
+        stroke: #ee4d2d;
+        fill: #ee4d2d;
+    }
+    .starRun .iconStarOn{
+        position:absolute;
+    }
+    .overviewFilters{
+        display:flex;
+        flex-wrap: wrap;
+        flex: 1;
+        padding-left: 3rem;
+    }
+    .overviewFilters .item{
+        min-width: 10rem;
+        border: .1rem solid rgba(0, 0, 0, .09);
+        color: rgba(0,0,0,.87);
+        border-radius: .2rem;
+        background-color: #fff;
+        font-size: 1.4rem;
+        text-align: center;
+        padding: 1rem 1.2rem;
+        margin: .5rem 1rem .5rem 0;
+        cursor: pointer;
+    }
+    .overviewFilters .item:first-child{
+        border-color:#ee4d2d;
+        color:#ee4d2d;
+    }
+    .comment{
+        display:flex;
+        padding: 0 0 2rem 2rem;
+        margin: 1.8rem 0 2rem 0;
+        border-bottom: .1rem solid rgba(0, 0, 0, .09);
+    }
+    .avatarWrapper{
+        position: relative;
+        width: 4rem;
+        height: 4rem;
+        display: block;
+        background-color: #f5f5f5;
+        padding: 0;
+        margin-right: 1rem;
+        border-radius: 50%;
+    }
+    .avatarWrapper .noImage{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .iconHeadshot{
+        width: 2.5rem;
+        height: 2.5rem;
+        stroke: #c6c6c6;
+    }
+    .avatarImage{
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+    }
+    .productRatingAuthorName{
+        color:rgba(0,0,0,.87);
+        font-size: 1.2rem;
+        margin-bottom: .7rem;
+    }
+    .commentRight{
+        flex:1;
+    }
+    .commentRight svg{
+        width: 1.4rem;
+        fill: #ee4d2d;
+    }
+    .commentRight .sa{
+        margin-top: 1.5rem;
+        color: rgba(0, 0, 0, .54);
+        font-size:1.2rem;
+    }
+    .commentRight .cl{
+        margin-top: 1.5rem;
+    }
+    .commentRight .clItem{
+        font-size: 1.4rem;
+        color:rgba(0, 0, 0, .4);
+        margin-top: 1rem;
+    }
+    .commentRight .clItem:first-child{
+        margin-top: 0;
+    }
+    .commentRight .clItem .span{
+        color:#333;
+    }
+    .commentRight .sab{
+        color: rgba(0,0,0,.87);
+        font-size: 1.4rem;
+        line-height: 1.5rem;
+        word-break: break-word;
+        white-space: pre-line;
+        margin-top: 1.5rem;
+    }
+    .commentRight .imageWrapper{
+        margin-top: 2rem;
+    }
+    .commentRight .image{
+        width: 7rem;
+        height: 7rem;
+        margin-right: .8rem;
+    }
+    .commentRight .likeWrapper{
+        display:flex;
+        justify-content: space-between;
+        color: rgba(0,0,0,.4);
+        margin-top: 1.5rem;
+    }
+    .commentRight .likeWrapper svg{
+        fill:rgba(0, 0, 0, .2);
+        cursor: pointer;
+    }
+    .commentRight .likeWrapper span{
+        font-size: 1.3rem;
+        margin-right: .1rem;
+    }
+    .controllerComment{
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 2rem;
+    }
+    .btnLeft{
+        display:flex;
+        align-items: center;
+        padding: .7rem;
+        margin: 0 1.4rem;
+        border: .1rem solid rgba(0, 0, 0, .09);
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .iconArrowLeft{
+        fill:rgba(0, 0, 0, .4);
+    }
+    .btnPrimery{
+        margin: 0 1.2rem;
+        padding: 0 .8rem;
+        border: none;
+        background-color: #ee4d2d;
+        color:#fff;;
+        border-radius: .2rem;
+        font-size: 1.6rem;
+        cursor: pointer;
+    }
+    .btnNone{
+        border: none;
+        padding: 0 .8rem;
+        background-color: transparent;
+        font-size: 1.6rem;
+        cursor: pointer;
+    }
+    .btnNone:hover{
+        color:#ee4d2d;
+    }
+    .otherTop{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4rem 0 1.5rem .5rem;
+    }
+    .otherTop .h2{
+        font-weight: 300;
+        color: rgba(0, 0, 0, .54);
+    }
+    .otherTop .a{
+        color: #ee4d2d;
+    }
+    .otherTop .iconArrowRight{
+        fill: #ee4d2d;
+    }
+    .w16{
+        width: 16.6667%;
+        padding: 0 .5rem;
+    }
+    .otherProductList .a{
+        width: 100%;
+        padding: 0;
+        display: block;
+        background-color:#fff;
+        border-radius: .2rem;
+    }
+    .otherProductList .imagePro{
+        width: 100%;
+        height: 20rem;
+    }
+    .otherProductList .image{
+        position: relative;
+        width: 100%;
+        height: 20rem;
+        background-size: cover;
+    }
+    .otherProductList .end{
+        padding: .7rem;
+    }
+    .otherProductList .p{
+        word-wrap: break-word;
+        white-space: normal;
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        font-size: 1.2rem;
+        color: #333;
+    }
+    .endSpecil{
+        display:flex;
+        font-size: 1rem;
+        color:#ee4d2d;
+        padding-top: .5rem;
+    }
+    .endSpecil .text{
+        border: .1rem solid #ee4d2d;
+        padding: .4rem;
+        margin-right: .4rem;
+    }
+    .otherProductListPrice{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color:#ee4d2d;
+        padding-top: .9rem;
+        font-size: 1.7rem;
+    }
+    .otherProductList .saled{
+        color:rgba(0, 0, 0, .54);
+        font-size: 1.2rem;
+    }
+    .favourite{
+        position: absolute;
+        top: 1rem;
+        left: -.3rem;
+        background-color: rgb(242, 82, 32);
+        color: #fff;
+        padding: 0 .4rem;
+        font-size: 1.2rem;
+        border-top-right-radius: .2rem;
+        border-bottom-right-radius: .2rem;
+    }
+    .favourite::before{
+        content: "";
+        position: absolute;
+        top: 104%;
+        left: 0;
+        border-top: .32rem solid rgb(242, 82, 32);
+        border-left: .32rem solid transparent;
+        filter: brightness(60%);
+    }
+    .down{
+        position:absolute;
+        top: 0;
+        right: 0;
+        padding: .3rem;
+        background-color: rgba(255,212,36,.9);
+        color: #ee4d2d;
+        font-size: 1.2rem;
+    }
+    .down::after{
+        content:'';
+        position:absolute;
+        top: 100%;
+        left: 0;
+        border-color: transparent rgba(255,212,36,.9);
+        border-style: solid;
+        border-width: 0 1.9rem .4rem;
+    }
+    .down .percent{
+        text-align: center;
+    }
+    .down .text{
+        text-transform: uppercase;
+        color:#fff;
+    }
+    .footerTopLine{
+        width: 100%;
+        margin-top: 8rem;
+        background-color: #fff;
+        border-top: .4rem solid #ee4d2d;
+    }
+    .footerTopLineIn{
+        max-width: 120rem;
+        border-bottom: .1rem solid rgba(0, 0, 0, .09);
+        margin: 10rem auto 0;
+    }
+</style>
+<body>
+    <div class="productDetail">
+        <div>
+            <div class="wrapper topSvg">
+                <a href="#">Shopee</a>
+                <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon xprSzi icon-arrow-right"><path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path></svg>
+                <a href="#">Oto & Xe may & Xe dap</a>
+                <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon xprSzi icon-arrow-right"><path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path></svg>
+                <a href="#">Mu bao hiem</a>
+                <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon xprSzi icon-arrow-right"><path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path></svg>
+                <p>nón bảo hiểm nửa đầu cao cấp nhiều màu lựa chọn</p>
+            </div>
+        </div>
+        <div>
+            <div class="wrapper detail">
+                <div class="i">
+                    <div>
+                        <div class="imageProduct imageProductMain" style="background-image: url('https://cf.shopee.vn/file/sg-11134201-22110-vad684fzm2jv3f');"></div>
+                    </div>
+                    <div class="imageSmallWrapper flex">
+                        <div class="imageSmall">
+                            <div class="imageProduct" style="background-image: url('https://cf.shopee.vn/file/9e02a931ff75498a3590d15dcb60216f_tn');"></div>
+                            <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="iconPlay"><g opacity=".54"><g><circle cx="7.5" cy="7.5" fill="#040000" r="7.3"></circle><path d="m7.5.5c3.9 0 7 3.1 7 7s-3.1 7-7 7-7-3.1-7-7 3.1-7 7-7m0-.5c-4.1 0-7.5 3.4-7.5 7.5s3.4 7.5 7.5 7.5 7.5-3.4 7.5-7.5-3.4-7.5-7.5-7.5z" fill="#ffffff"></path></g></g><path d="m6.1 5.1c0-.2.1-.3.3-.2l3.3 2.3c.2.1.2.3 0 .4l-3.3 2.4c-.2.1-.3.1-.3-.2z" fill="#ffffff"></path></svg>
+                        </div>
+                        <div class="imageSmall">
+                            <div class="imageProduct" style="background-image: url('https://cf.shopee.vn/file/1050e8f4402f2e698d364c6cf9f6da48_tn');"></div>
+                        </div>
+                        <div class="imageSmall">
+                            <div class="imageProduct" style="background-image: url('https://cf.shopee.vn/file/a6b21476721cd8c1ddae2d96fb5bb391_tn');"></div>
+                        </div>
+                        <div class="imageSmall">
+                            <div class="imageProduct" style="background-image: url('https://cf.shopee.vn/file/d61c0bd6517be0b1326b71598a24c2ec_tn');"></div>
+                        </div>
+                        <div class="imageSmall">
+                            <div class="imageProduct" style="background-image: url('https://cf.shopee.vn/file/sg-11134201-22110-ralzci1ym2jva8_tn');"></div>
+                        </div>
+                        <div class="imageSmall">
+                            <div class="imageProduct" style="background-image: url('https://cf.shopee.vn/file/sg-11134201-22110-vad684fzm2jv3f_tn');"></div>
+                        </div>
+                    </div>
+                    <div class="center shareAndLike">
+                        <div class="share center">
+                            <span>Chia sẻ:</span>
+                            <a class="fm" href="#"></a>
+                            <a class="facebook" href="#"></a>
+                            <a class="pinterest" href="#"></a>
+                            <a class="twitter" href="#"></a>
+                        </div>
+                        <a class="liked" href="#">
+                            <svg width="24" height="20" class="x0F377"><path d="M19.469 1.262c-5.284-1.53-7.47 4.142-7.47 4.142S9.815-.269 4.532 1.262C-1.937 3.138.44 13.832 12 19.333c11.559-5.501 13.938-16.195 7.469-18.07z" stroke="#FF424F" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linejoin="round"></path></svg>
+                            <span>Đã thích (1,6k)</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="r">
+                    <div>
+                        <h1>Mũ bảo hiểm nửa đầu chính hãng siêu rẻ có thông gió , nón bảo hiểm đa dạng màu sắc sơn nhám bền màu phù hợp mọi lứa tuổi</h1>
+                        <div class="review">
+                            <div class="center starWrapper">
+                                <p class="star">4.8</p>
+                                <div class="flex starGroup s">
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon shopee-rating-stars__primary-star icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon shopee-rating-stars__primary-star icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon shopee-rating-stars__primary-star icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon shopee-rating-stars__primary-star icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <div class="starK">
+                                        <div class="item">
+                                            <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon shopee-rating-stars__primary-star icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                        </div>
+                                        <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon shopee-rating-stars__primary-star icon-rating-solid"><polygon fill="none" points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="center starWrapper">
+                                <p class="star b">2,1k</p>
+                                <div class="flex starGroup">
+                                    Đánh Giá
+                                </div>
+                            </div>
+                            <div class="center starWrapper">
+                                <p class="star b">7,8k</p>
+                                <div class="flex starGroup">
+                                    Đã Bán
+                                </div>
+                                <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" role="img" class="iconHelp"><circle cx="7.5" cy="7.5" fill="none" r="6.5" stroke-miterlimit="10"></circle><path stroke="none" d="m5.3 5.3c.1-.3.3-.6.5-.8s.4-.4.7-.5.6-.2 1-.2c.3 0 .6 0 .9.1s.5.2.7.4.4.4.5.7.2.6.2.9c0 .2 0 .4-.1.6s-.1.3-.2.5c-.1.1-.2.2-.3.3-.1.2-.2.3-.4.4-.1.1-.2.2-.3.3s-.2.2-.3.4c-.1.1-.1.2-.2.4s-.1.3-.1.5v.4h-.9v-.5c0-.3.1-.6.2-.8s.2-.4.3-.5c.2-.2.3-.3.5-.5.1-.1.3-.3.4-.4.1-.2.2-.3.3-.5s.1-.4.1-.7c0-.4-.2-.7-.4-.9s-.5-.3-.9-.3c-.3 0-.5 0-.7.1-.1.1-.3.2-.4.4-.1.1-.2.3-.3.5 0 .2-.1.5-.1.7h-.9c0-.3.1-.7.2-1zm2.8 5.1v1.2h-1.2v-1.2z"></path></svg>
+                            </div>
+                            <a href="#">To cao</a>
+                        </div>
+                    </div>
+                    <div class="priceWrapper">
+                        <p class="downOutPrice">₫15.000 - ₫47.000</p>
+                        <p class="price">₫14.900 - ₫33.900</p>
+                        <p class="percentDown">28% GIẢM</p>
+                    </div>
+                    <div class="deliver">
+                        <div class="flex w">
+                            <p class="title">Bảo Hiểm</p>
+                            <div>
+                                <div class="flex">
+                                    <div class="deliverFree">Bảo hiểm Thời trang</div>
+                                    <p class="new">Mới</p>
+                                    <a class="more" href="#">Tìm hiểu thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex w">
+                            <p class="title">Vận Chuyển</p>
+                            <div>
+                                <div class="flex">
+                                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/74f3e9ac01da8565c3baead996ed6e2a.png" height="20" class="BLuvNY">
+                                    <div class="deliverFree">Miễn phí vận chuyển</div>
+                                </div>
+                                <div class="flex c">
+                                    <svg enable-background="new 0 0 18 18" viewBox="0 0 18 18" class="iconShippingAirplane"><path d="m15 4s2.7-1.1 2.5 2c-1.8.7-5.6 2.6-5.6 2.6l-2.8 5.1-2.1 1.3 1.7-5-6.7 3v-2l-1.5-2 1.2-.9 1.6 1.6 2.5-1.3-2.8-2.4 2-1 3.3 2.2z" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    <div class="deliverFree">
+                                        <p>
+                                            <span>Vận Chuyển Từ</span>
+                                            <span>Overseas</span>
+                                            <span>toi</span>
+                                            <span class="pointer">Phường Tràng Tiền, Quận Hoàn Kiếm</span>
+                                            <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-down"><g><path d="m11 2.5c0 .1 0 .2-.1.3l-5 6c-.1.1-.3.2-.4.2s-.3-.1-.4-.2l-5-6c-.2-.2-.1-.5.1-.7s.5-.1.7.1l4.6 5.5 4.6-5.5c.2-.2.5-.2.7-.1.1.1.2.3.2.4z"></path></g></svg>
+                                        </p>
+                                        <p class="e">
+                                            <span>Phí Vận Chuyển</span>
+                                            <span class="pointer">₫0</span>
+                                            <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-down"><g><path d="m11 2.5c0 .1 0 .2-.1.3l-5 6c-.1.1-.3.2-.4.2s-.3-.1-.4-.2l-5-6c-.2-.2-.1-.5.1-.7s.5-.1.7.1l4.6 5.5 4.6-5.5c.2-.2.5-.2.7-.1.1.1.2.3.2.4z"></path></g></svg>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex w">
+                            <p class="title">Color</p>
+                            <div class="btnGroup">
+                                <button>White
+                                    <div class="check">
+                                        <svg enable-background="new 0 0 12 12" viewBox="0 0 12 12" x="0" y="0" class="shopee-svg-icon icon-tick-bold"><g><path d="m5.2 10.9c-.2 0-.5-.1-.7-.2l-4.2-3.7c-.4-.4-.5-1-.1-1.4s1-.5 1.4-.1l3.4 3 5.1-7c .3-.4 1-.5 1.4-.2s.5 1 .2 1.4l-5.7 7.9c-.2.2-.4.4-.7.4 0-.1 0-.1-.1-.1z"></path></g></svg>
+                                    </div>
+                                </button>
+                                <button>yellow</button>
+                                <button>xi mang</button>
+                                <button>red</button>
+                                <button>ngoc</button>
+                                <button>bac
+                                    <div class="check">
+                                        <svg enable-background="new 0 0 12 12" viewBox="0 0 12 12" x="0" y="0" class="shopee-svg-icon icon-tick-bold"><g><path d="m5.2 10.9c-.2 0-.5-.1-.7-.2l-4.2-3.7c-.4-.4-.5-1-.1-1.4s1-.5 1.4-.1l3.4 3 5.1-7c .3-.4 1-.5 1.4-.2s.5 1 .2 1.4l-5.7 7.9c-.2.2-.4.4-.7.4 0-.1 0-.1-.1-.1z"></path></g></svg>
+                                    </div>
+                                </button>
+                                <button>kem</button>
+                                <button>xanh linh</button>
+                                <button>xanh bien</button>
+                                <button>long chuot</button>
+                                <button>xanh chuoi</button>
+                                <button>xanh den</button>
+                            </div>
+                        </div>
+                        <div class="quanlityWrapper">
+                            <p class="title">Số Lượng</p>
+                            <div class="btnGroup quanlity">
+                                <button>
+                                    <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0" class="shopee-svg-icon"><polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5"></polygon></svg>
+                                </button>
+                                <input class="quanlity" type="text" name="quanlity" id="quanlity" value="1">
+                                <button>
+                                    <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0" class="shopee-svg-icon icon-plus-sign"><polygon points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5"></polygon></svg>
+                                </button>
+                                <p>205402 sản phẩm có sẵn</p>
+                            </div>
+                        </div>
+                        <div class="buyNow">
+                            <button>
+                                <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon tDviDD icon-add-to-cart"><g><g><polyline fill="none" points=".5 .5 2.7 .5 5.2 11 12.4 11 14.5 3.5 3.7 3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline><circle cx="6" cy="13.5" r="1" stroke="none"></circle><circle cx="11.5" cy="13.5" r="1" stroke="none"></circle></g><line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="7.5" x2="10.5" y1="7" y2="7"></line><line fill="none" stroke-linecap="round" stroke-miterlimit="10" x1="9" x2="9" y1="8.5" y2="5.5"></line></g></svg>
+                                <span>thêm vào giỏ hàng</span>
+                            </button>
+                            <button>mua ngay</button>
+                        </div>
+                    </div>
+                    <a class="shopeeC" href="#">
+                        <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/83e10a1f95cb083579c089448ef8dd3b.png" class="RxFsWv">
+                        <span class="l">Shopee Đảm Bảo</span>
+                        <span class="sr">3 Ngày Trả Hàng / Hoàn Tiền</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="wrapper detail mgt1p7r">
+                <div class="onlineChatnow">
+                    <div class="avatar">
+                        <img class="avatarImage" src="https://cf.shopee.vn/file/c4c013826ddfbb4ec819baff72f6b719_tn">
+                    </div>
+                    <div class="onlineChatnowRight">
+                        <p>xuanbien8386</p>
+                        <p class="online45">Online 45 Phút Trước</p>
+                        <div class="mgt1r">
+                            <button class="chatNowBtn">
+                                <svg viewBox="0 0 16 16" class="iconChatNow iconSeeShop"><g fill-rule="evenodd"><path d="M15 4a1 1 0 01.993.883L16 5v9.932a.5.5 0 01-.82.385l-2.061-1.718-8.199.001a1 1 0 01-.98-.8l-.016-.117-.108-1.284 8.058.001a2 2 0 001.976-1.692l.018-.155L14.293 4H15zm-2.48-4a1 1 0 011 1l-.003.077-.646 8.4a1 1 0 01-.997.923l-8.994-.001-2.06 1.718a.5.5 0 01-.233.108l-.087.007a.5.5 0 01-.492-.41L0 11.732V1a1 1 0 011-1h11.52zM3.646 4.246a.5.5 0 000 .708c.305.304.694.526 1.146.682A4.936 4.936 0 006.4 5.9c.464 0 1.02-.062 1.608-.264.452-.156.841-.378 1.146-.682a.5.5 0 10-.708-.708c-.185.186-.445.335-.764.444a4.004 4.004 0 01-2.564 0c-.319-.11-.579-.258-.764-.444a.5.5 0 00-.708 0z"></path></g></svg>
+                                <span>Chat Ngay</span>
+                            </button>
+                            <a class="seeShop" href="#">
+                                <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" stroke-width="0" class="iconSeeShop"><path d="m13 1.9c-.2-.5-.8-1-1.4-1h-8.4c-.6.1-1.2.5-1.4 1l-1.4 4.3c0 .8.3 1.6.9 2.1v4.8c0 .6.5 1 1.1 1h10.2c.6 0 1.1-.5 1.1-1v-4.6c.6-.4.9-1.2.9-2.3zm-11.4 3.4 1-3c .1-.2.4-.4.6-.4h8.3c.3 0 .5.2.6.4l1 3zm .6 3.5h.4c.7 0 1.4-.3 1.8-.8.4.5.9.8 1.5.8.7 0 1.3-.5 1.5-.8.2.3.8.8 1.5.8.6 0 1.1-.3 1.5-.8.4.5 1.1.8 1.7.8h.4v3.9c0 .1 0 .2-.1.3s-.2.1-.3.1h-9.5c-.1 0-.2 0-.3-.1s-.1-.2-.1-.3zm8.8-1.7h-1v .1s0 .3-.2.6c-.2.1-.5.2-.9.2-.3 0-.6-.1-.8-.3-.2-.3-.2-.6-.2-.6v-.1h-1v .1s0 .3-.2.5c-.2.3-.5.4-.8.4-1 0-1-.8-1-.8h-1c0 .8-.7.8-1.3.8s-1.1-1-1.2-1.7h12.1c0 .2-.1.9-.5 1.4-.2.2-.5.3-.8.3-1.2 0-1.2-.8-1.2-.9z"></path></svg>
+                                <span>Xem Shop</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="onlineRight">
+                    <div class="onlineItem">
+                        <label class="label">Đánh giá</label>
+                        <span class="span">2,6k</span>
+                    </div>
+                    <div class="onlineItem">
+                        <label class="label">tỉ lệ phản hồi</label>
+                        <span class="span">80%</span>
+                    </div>
+                    <div class="onlineItem">
+                        <label class="label">tham gia</label>
+                        <span class="span">22 thang truoc</span>
+                    </div>
+                    <div class="onlineItem">
+                        <label class="label">san pham</label>
+                        <span class="span">75</span>
+                    </div>
+                    <div class="onlineItem">
+                        <label class="label">thời gian phản hồi</label>
+                        <span class="span">trong vài giờ</span>
+                    </div>
+                    <div class="onlineItem">
+                        <label class="label">Người theo dõi</label>
+                        <span class="span">12,1k</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="wrapper backgrFff mgt1p7r">
+                <div class="detailProduct">
+                    <h1 class="titleProduct">CHI TIẾT SẢN PHẨM</h1>
+                    <div class="content">
+                        <div class="item">
+                            <label class="labelS">Danh Mục</label>
+                            <div class="flex">
+                                <a class="a" href="#">Shopee</a>
+                                <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon xprSzi icon-arrow-right"><path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path></svg>
+                                <a class="a" href="#">Giày Dép Nam</a>
+                                <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon xprSzi icon-arrow-right"><path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path></svg>
+                                <a class="a" href="#">Xăng-đan và Dép</a>
+                                <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon xprSzi icon-arrow-right"><path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path></svg>
+                                <a class="a" href="#">Xăng-đan</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <label class="labelS">Tên tổ chức chịu trách nhiệm sản xuất</label>
+                            <div class="flex cl">Đang cập nhật</div>
+                        </div>
+                        <div class="item">
+                            <label class="labelS">Chat lieu</label>
+                            <div class="flex cl">Cao su</div>
+                        </div>
+                        <div class="item">
+                            <label class="labelS">Loai da</label>
+                            <div class="flex cl">Da Exotic</div>
+                        </div>
+                        <div class="item">
+                            <label class="labelS">Dia chi to chuc</label>
+                            <div class="flex cl">Dang cap nhat</div>
+                        </div>
+                        <div class="item">
+                            <label class="labelS">Xuat xu</label>
+                            <div class="flex cl">Viet Nam</div>
+                        </div>
+                        <div class="item">
+                            <label class="labelS">Gui tu</label>
+                            <div class="flex cl">Quan Ha Dong, Ha Noi</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detailProduct">
+                    <h1 class="titleProduct">MÔ TẢ SẢN PHẨM</h1>
+                    <div class="content au">THÔNG TIN SẢN PHẨM:
+                        - Trong trang phục hàng ngày, thay vì diện những đôi giày nóng bức và tốn nhiều thời gian để đeo, các bạn nam thường lựa chọn dép nam để tìm kiếm sự thoải mái, mát mẻ và tiện lợi. Bạn có thể mua dép nam thời trang để phối đồ phù hợp với nhiều hoàn cảnh như đi học, đi làm, đi chơi. Hãy cùng Shop tham khảo ngay một số gợi ý và kinh nghiệm chọn mua chất lượng, phù hợp với bản thân nhé!
+                        
+                        - Tên sản phẩm: Dép MLB nam nữ Cao Cấp chữ thêu nổi sắc nét, Dép lê NY quai ngang đế cao 3cm đúc chắc chắn 3 màu hồng trắng đen D13
+                        
+                        - Xuất xứ Dép MLB: Việt Nam
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="wrapper backgrFff mgt1p7r">
+                <div class="detailProduct">
+                    <h1 class="h1">ĐÁNH GIÁ SẢN PHẨM</h1>
+                    <div class="reviewStar">
+                        <div class="left">
+                            <div class="starNumberWrapper">
+                                <span class="starNumber">4.7</span>
+                                <span class="starText">tren 5</span>
+                            </div>
+                            <div class="flex starGroupDetail">
+                                <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="iconStarRun"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="iconStarRun"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="iconStarRun"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="iconStarRun"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                <div class="starRun">
+                                    <div>
+                                        <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="iconStarRun"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    </div>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="iconStarOn"><polygon fill="none" points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overviewFilters">
+                            <div class="item">Tat Ca</div>
+                            <div class="item">5 Sao (482)</div>
+                            <div class="item">4 Sao (57)</div>
+                            <div class="item">3 Sao (45)</div>
+                            <div class="item">2 Sao (16)</div>
+                            <div class="item">1 Sao (29)</div>
+                            <div class="item">Co binh luan (286)</div>
+                            <div class="item">Co Hinh Anh / Video (194)</div>
+                            <div class="item">Trong Nuoc (608)</div>
+                        </div>
+                    </div>
+                    <div class="commentsWrapper">
+                        <div class="comment">
+                            <a class="avatarWrapper" href="#">
+                                <div class="noImage">
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="iconHeadshot"><g><circle cx="7.5" cy="4.5" fill="none" r="3.8" stroke-miterlimit="10"></circle><path d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke-linecap="round" stroke-miterlimit="10"></path></g></svg>
+                                </div>
+                                <img class="avatarImage" src="https://cf.shopee.vn/file/97979d0f1446e125a0aabb004295114c_tn">
+                            </a>
+                            <div class="commentRight">
+                                <div class="productRatingAuthorName">Peter</div>
+                                <div>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                </div>
+                                <div class="sa">2022-05-24 01:35 | Phân loại hàng: Full trắng,40</div>
+                                <div class="cl">
+                                    <div class="clItem">
+                                        <span>Chất liệu:</span>
+                                        <span class="span">vải, xốp</span>
+                                    </div>
+                                    <div class="clItem">
+                                        <span>Đúng với mô tả:</span>
+                                        <span class="span">mang êm chân, thoải mái</span>
+                                    </div>
+                                    <div class="clItem">
+                                        <span>Màu sắc:</span>
+                                        <span class="span">nâu</span>
+                                    </div>
+                                </div>
+                                <div class="sab">K có gì để bàn cãi về chất lượng rồi quá là ok luôn lần sau ủng hộ shop.tiếp</div>
+                                <div class="imageWrapper">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-qqptlr1d48fvb0_tn">
+                                    <img class="image" src="https://cf.shopee.vn/file/006b4055fe86e664a9d24baabe71a4f7">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-3buoxu1d48fvf4_tn">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-3buoxu1d48fvf4_tn">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-3buoxu1d48fvf4_tn">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-3buoxu1d48fvf4_tn">
+                                </div>
+                                <div class="likeWrapper">
+                                    <div>
+                                        <svg width="14px" height="13px" viewBox="0 0 14 13" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs></defs><g stroke="none" stroke-width="1" fill-rule="evenodd"><g id="Product-Ratings-Working" transform="translate(-245.000000, -855.000000)" fill-rule="nonzero"><g transform="translate(155.000000, 92.000000)"><g transform="translate(40.000000, 184.000000)"><g transform="translate(0.000000, 326.000000)"><g transform="translate(50.000000, 253.000000)"><g><path d="M0,12.7272727 L2.54545455,12.7272727 L2.54545455,5.09090909 L0,5.09090909 L0,12.7272727 Z M14,5.72727273 C14,5.02727273 13.4272727,4.45454545 12.7272727,4.45454545 L8.71818182,4.45454545 L9.35454545,1.52727273 L9.35454545,1.33636364 C9.35454545,1.08181818 9.22727273,0.827272727 9.1,0.636363636 L8.4,0 L4.2,4.2 C3.94545455,4.39090909 3.81818182,4.70909091 3.81818182,5.09090909 L3.81818182,11.4545455 C3.81818182,12.1545455 4.39090909,12.7272727 5.09090909,12.7272727 L10.8181818,12.7272727 C11.3272727,12.7272727 11.7727273,12.4090909 11.9636364,11.9636364 L13.8727273,7.44545455 C13.9363636,7.31818182 13.9363636,7.12727273 13.9363636,7 L13.9363636,5.72727273 L14,5.72727273 C14,5.79090909 14,5.72727273 14,5.72727273 Z"></path></g></g></g></g></g></g></g></svg>
+                                        <span>1</span>
+                                    </div>
+                                    <svg width="4px" height="16px" viewBox="0 0 4 16" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs></defs><g stroke="none" stroke-width="1" fill-rule="evenodd"><g transform="translate(-1301.000000, -550.000000)" fill="#CCCCCC"><g transform="translate(155.000000, 92.000000)"><g transform="translate(40.000000, 184.000000)"><g transform="translate(0.000000, 161.000000)"><g><g transform="translate(50.000000, 2.000000)"><path d="M1058,122.2 C1056.895,122.2 1056,123.096 1056,124.2 C1056,125.306 1056.895,126.202 1058,126.202 C1059.104,126.202 1060,125.306 1060,124.2 C1060,123.096 1059.104,122.2 1058,122.2 M1058,116.6 C1056.895,116.6 1056,117.496 1056,118.6 C1056,119.706 1056.895,120.602 1058,120.602 C1059.104,120.602 1060,119.706 1060,118.6 C1060,117.496 1059.104,116.6 1058,116.6 M1058,111 C1056.895,111 1056,111.896 1056,113 C1056,114.106 1056.895,115.002 1058,115.002 C1059.104,115.002 1060,114.106 1060,113 C1060,111.896 1059.104,111 1058,111"></path></g></g></g></g></g></g></g></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <a class="avatarWrapper" href="#">
+                                <div class="noImage">
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="iconHeadshot"><g><circle cx="7.5" cy="4.5" fill="none" r="3.8" stroke-miterlimit="10"></circle><path d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke-linecap="round" stroke-miterlimit="10"></path></g></svg>
+                                </div>
+                            </a>
+                            <div class="commentRight">
+                                <div class="productRatingAuthorName">Peter</div>
+                                <div>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                </div>
+                                <div class="sa">2022-05-24 01:35 | Phân loại hàng: Full trắng,40</div>
+                                <div class="sab">K có gì để bàn cãi về chất lượng rồi quá là ok luôn lần sau ủng hộ shop.tiếp</div>
+                                <div class="imageWrapper">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-qqptlr1d48fvb0_tn">
+                                    <img class="image" src="https://cf.shopee.vn/file/006b4055fe86e664a9d24baabe71a4f7">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-3buoxu1d48fvf4_tn">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-3buoxu1d48fvf4_tn">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-3buoxu1d48fvf4_tn">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-3buoxu1d48fvf4_tn">
+                                </div>
+                                <div class="likeWrapper">
+                                    <div>
+                                        <svg width="14px" height="13px" viewBox="0 0 14 13" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs></defs><g stroke="none" stroke-width="1" fill-rule="evenodd"><g id="Product-Ratings-Working" transform="translate(-245.000000, -855.000000)" fill-rule="nonzero"><g transform="translate(155.000000, 92.000000)"><g transform="translate(40.000000, 184.000000)"><g transform="translate(0.000000, 326.000000)"><g transform="translate(50.000000, 253.000000)"><g><path d="M0,12.7272727 L2.54545455,12.7272727 L2.54545455,5.09090909 L0,5.09090909 L0,12.7272727 Z M14,5.72727273 C14,5.02727273 13.4272727,4.45454545 12.7272727,4.45454545 L8.71818182,4.45454545 L9.35454545,1.52727273 L9.35454545,1.33636364 C9.35454545,1.08181818 9.22727273,0.827272727 9.1,0.636363636 L8.4,0 L4.2,4.2 C3.94545455,4.39090909 3.81818182,4.70909091 3.81818182,5.09090909 L3.81818182,11.4545455 C3.81818182,12.1545455 4.39090909,12.7272727 5.09090909,12.7272727 L10.8181818,12.7272727 C11.3272727,12.7272727 11.7727273,12.4090909 11.9636364,11.9636364 L13.8727273,7.44545455 C13.9363636,7.31818182 13.9363636,7.12727273 13.9363636,7 L13.9363636,5.72727273 L14,5.72727273 C14,5.79090909 14,5.72727273 14,5.72727273 Z"></path></g></g></g></g></g></g></g></svg>
+                                        <span>1</span>
+                                    </div>
+                                    <svg width="4px" height="16px" viewBox="0 0 4 16" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs></defs><g stroke="none" stroke-width="1" fill-rule="evenodd"><g transform="translate(-1301.000000, -550.000000)" fill="#CCCCCC"><g transform="translate(155.000000, 92.000000)"><g transform="translate(40.000000, 184.000000)"><g transform="translate(0.000000, 161.000000)"><g><g transform="translate(50.000000, 2.000000)"><path d="M1058,122.2 C1056.895,122.2 1056,123.096 1056,124.2 C1056,125.306 1056.895,126.202 1058,126.202 C1059.104,126.202 1060,125.306 1060,124.2 C1060,123.096 1059.104,122.2 1058,122.2 M1058,116.6 C1056.895,116.6 1056,117.496 1056,118.6 C1056,119.706 1056.895,120.602 1058,120.602 C1059.104,120.602 1060,119.706 1060,118.6 C1060,117.496 1059.104,116.6 1058,116.6 M1058,111 C1056.895,111 1056,111.896 1056,113 C1056,114.106 1056.895,115.002 1058,115.002 C1059.104,115.002 1060,114.106 1060,113 C1060,111.896 1059.104,111 1058,111"></path></g></g></g></g></g></g></g></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <a class="avatarWrapper" href="#">
+                                <div class="noImage">
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="iconHeadshot"><g><circle cx="7.5" cy="4.5" fill="none" r="3.8" stroke-miterlimit="10"></circle><path d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke-linecap="round" stroke-miterlimit="10"></path></g></svg>
+                                </div>
+                                <img class="avatarImage" src="https://cf.shopee.vn/file/53d159251139b0d6741d98af7fbfa232_tn">
+                            </a>
+                            <div class="commentRight">
+                                <div class="productRatingAuthorName">Caddimart</div>
+                                <div>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" class="shopee-svg-icon icon-rating-solid--active icon-rating-solid"><polygon points="7.5 .8 9.7 5.4 14.5 5.9 10.7 9.1 11.8 14.2 7.5 11.6 3.2 14.2 4.3 9.1 .5 5.9 5.3 5.4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polygon></svg>
+                                </div>
+                                <div class="sa">2022-05-24 01:35 | Phân loại hàng: Full trắng,40</div>
+                                <div class="cl">
+                                    <div class="clItem">
+                                        <span>Chất liệu:</span>
+                                        <span class="span">vải, xốp</span>
+                                    </div>
+                                    <div class="clItem">
+                                        <span>Đúng với mô tả:</span>
+                                        <span class="span">mang êm chân, thoải mái</span>
+                                    </div>
+                                    <div class="clItem">
+                                        <span>Màu sắc:</span>
+                                        <span class="span">nâu</span>
+                                    </div>
+                                </div>
+                                <div class="sab">hàng rất đẹp giao rất nhanh hôm qua mới đặt hôm nay đã về rồi vì hôm nay là cn nên ko ở đúng điểm hẹn anh giao tới tận nhà để giao lun😍</div>
+                                <div class="imageWrapper">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-qqptlr1d48fvb0_tn">
+                                    <img class="image" src="https://cf.shopee.vn/file/006b4055fe86e664a9d24baabe71a4f7">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-3buoxu1d48fvf4_tn">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-3buoxu1d48fvf4_tn">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-3buoxu1d48fvf4_tn">
+                                    <img class="image" src="https://cf.shopee.vn/file/vn-11134103-22080-3buoxu1d48fvf4_tn">
+                                </div>
+                                <div class="likeWrapper">
+                                    <div>
+                                        <svg width="14px" height="13px" viewBox="0 0 14 13" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs></defs><g stroke="none" stroke-width="1" fill-rule="evenodd"><g id="Product-Ratings-Working" transform="translate(-245.000000, -855.000000)" fill-rule="nonzero"><g transform="translate(155.000000, 92.000000)"><g transform="translate(40.000000, 184.000000)"><g transform="translate(0.000000, 326.000000)"><g transform="translate(50.000000, 253.000000)"><g><path d="M0,12.7272727 L2.54545455,12.7272727 L2.54545455,5.09090909 L0,5.09090909 L0,12.7272727 Z M14,5.72727273 C14,5.02727273 13.4272727,4.45454545 12.7272727,4.45454545 L8.71818182,4.45454545 L9.35454545,1.52727273 L9.35454545,1.33636364 C9.35454545,1.08181818 9.22727273,0.827272727 9.1,0.636363636 L8.4,0 L4.2,4.2 C3.94545455,4.39090909 3.81818182,4.70909091 3.81818182,5.09090909 L3.81818182,11.4545455 C3.81818182,12.1545455 4.39090909,12.7272727 5.09090909,12.7272727 L10.8181818,12.7272727 C11.3272727,12.7272727 11.7727273,12.4090909 11.9636364,11.9636364 L13.8727273,7.44545455 C13.9363636,7.31818182 13.9363636,7.12727273 13.9363636,7 L13.9363636,5.72727273 L14,5.72727273 C14,5.79090909 14,5.72727273 14,5.72727273 Z"></path></g></g></g></g></g></g></g></svg>
+                                        <span>1</span>
+                                    </div>
+                                    <svg width="4px" height="16px" viewBox="0 0 4 16" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs></defs><g stroke="none" stroke-width="1" fill-rule="evenodd"><g transform="translate(-1301.000000, -550.000000)" fill="#CCCCCC"><g transform="translate(155.000000, 92.000000)"><g transform="translate(40.000000, 184.000000)"><g transform="translate(0.000000, 161.000000)"><g><g transform="translate(50.000000, 2.000000)"><path d="M1058,122.2 C1056.895,122.2 1056,123.096 1056,124.2 C1056,125.306 1056.895,126.202 1058,126.202 C1059.104,126.202 1060,125.306 1060,124.2 C1060,123.096 1059.104,122.2 1058,122.2 M1058,116.6 C1056.895,116.6 1056,117.496 1056,118.6 C1056,119.706 1056.895,120.602 1058,120.602 C1059.104,120.602 1060,119.706 1060,118.6 C1060,117.496 1059.104,116.6 1058,116.6 M1058,111 C1056.895,111 1056,111.896 1056,113 C1056,114.106 1056.895,115.002 1058,115.002 C1059.104,115.002 1060,114.106 1060,113 C1060,111.896 1059.104,111 1058,111"></path></g></g></g></g></g></g></g></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="controllerComment">
+                            <button class="btnLeft">
+                                <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="iconArrowLeft"><g><path d="m8.5 11c-.1 0-.2 0-.3-.1l-6-5c-.1-.1-.2-.3-.2-.4s.1-.3.2-.4l6-5c .2-.2.5-.1.7.1s.1.5-.1.7l-5.5 4.6 5.5 4.6c.2.2.2.5.1.7-.1.1-.3.2-.4.2z"></path></g></svg>
+                            </button>
+                            <button class="btnPrimery">1</button>
+                            <button class="btnNone">2</button>
+                            <button class="btnNone">3</button>
+                            <button class="btnNone">4</button>
+                            <button class="btnNone">5</button>
+                            <button class="btnNone">...</button>
+                            <button class="right btnLeft">
+                                <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="iconArrowLeft icon-arrow-right"><path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="wrapper">
+                <div class="otherProduct">
+                    <div class="otherTop">
+                        <h2 class="h2">CÁC SẢN PHẨM KHÁC CỦA SHOP</h2>
+                        <a class="a" href="#">
+                            <span>Xem Tat Ca</span>
+                            <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="iconArrowRight"><path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path></svg>
+                        </a>
+                    </div>
+                    <ul class="flex otherProductList">
+                        <li class="w16">
+                            <a class="a" href="#">
+                                <div class="image" style="background-image: url('https://cf.shopee.vn/file/sg-11134201-22090-4ftq8qydfzhv42_tn');">
+                                    <img class="imagePro" src="https://cf.shopee.vn/file/vn-50009109-e9295f530bcf007a940ffc912ccc0380">
+                                    <div class="favourite">Favourite</div>
+                                    <div class="down">
+                                        <p class="percent">21%</p>
+                                        <p class="text">giam</p>
+                                    </div>                            
+                                </div>
+                                <div class="end">
+                                    <div>
+                                        <p class="p">Dép nam nữ quai ngang dập chìm gucici hót 2023 size 38-43</p>
+                                    </div>
+                                    <div class="endSpecil">
+                                        <div class="text">#Shopdacbiet</div>
+                                        <div class="text">#ShopXuHuong</div>
+                                    </div>
+                                    <div class="otherProductListPrice">
+                                        <div>
+                                            <span>₫</span><span>60.000</span>
+                                        </div>
+                                        <div class="saled">Đã bán 5,3k</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="w16">
+                            <a class="a" href="#">
+                                <div class="image" style="background-image: url('https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lfj78jflqool72_tn');">
+                                    <img class="imagePro" src="https://cf.shopee.vn/file/vn-50009109-e9295f530bcf007a940ffc912ccc0380">
+                                    <div class="favourite">Favourite</div>
+                                    <div class="down">
+                                        <p class="percent">21%</p>
+                                        <p class="text">giam</p>
+                                    </div>                            
+                                </div>
+                                <div class="end">
+                                    <div>
+                                        <p class="p">Dép nam nữ quai ngang dập chìm gucici hót 2023 size 38-43</p>
+                                    </div>
+                                    <div class="endSpecil">
+                                        <div class="text">#Shopdacbiet</div>
+                                        <div class="text">#ShopXuHuong</div>
+                                    </div>
+                                    <div class="otherProductListPrice">
+                                        <div>
+                                            <span>₫</span><span>60.000</span>
+                                        </div>
+                                        <div class="saled">Đã bán 5,3k</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footerTopLine">
+            <div class="footerTopLineIn"></div>
+        </div>
+    </footer>
+</body>
+</html>
