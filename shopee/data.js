@@ -9,7 +9,7 @@ let today = document.querySelector('.today');
 let temp = imageMain.map((item, index) => {
     return `
     <div class="cardWrapper6 posi-re">
-        <a class="cardLink hover block w100p backgr-color-fff text-dec posi-re" href="minhpham2040.github.io/project/shopee/product.html">
+        <a class="cardLink hover block w100p backgr-color-fff text-dec posi-re" href="https://minhpham2040.github.io/project/shopee/product.html">
             <div class="posi-re w100p">
                 <img class="cardImage posi-ab" src="${imagePro[index]}">
                 <img class="cardImage" src="${item}">
