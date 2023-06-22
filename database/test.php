@@ -4,3 +4,4 @@ if(isset($_GET['name'])){
 };
 $text = "Hello world!";
 echo $text;
+?>
