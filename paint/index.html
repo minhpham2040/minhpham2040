@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .btn{
+        padding: .4rem;
+        color: #fff;
+        border: none;
+    }
+</style>
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="controller">
+        <button id="changeColorBtn" class="btn" style="background-color: green;">Change color</button>
+        <input id="colors" type="text" placeholder="Enter array name color">
+        <button id="go">Go!</button>
+        <button class="freeDom" data-paint="freeDom">FreeDom</button>
+        <button class="fillRect" data-paint="fillRect">FillRect</button>
+        <button class="lineTo" data-paint="lineTo">LineTo</button>
+    </div>
+    <script type = "module">
+
+        class Canvas {
+            constructor(option) {
+                this.option = option;
+                this.width = this.option.width;
+                this.height = this.option.height;
+                this.linewidth = this.option.linewidth;
+                this.typePaint = 'freeDom';
+                this.numberColor = 0;
+                this.paintning = false;
+                this.colors = this.initColors(this.option.colors);
+                this.canvas = this.getElm(this.option.canvas);
+                this.ctx = this.initCtx(this.canvas);
+                this.changeColorBtn = this.getElm(this.option.btn.changeColor);
+                this.inputColor = this.getElm(this.option.text);
+                this.goBtn = this.getElm(this.option.btn.go);
+                this.freeDomBtn = this.getElm(this.option.btn.freeDom);
+                this.fillRectBtn = this.getElm(this.option.btn.fillRect);
+                this.lineToBtn = this.getElm(this.option.btn.lineTo);
+            }
+
+            addClass(t, cls, callback) {
+                callback(t, cls);
+            }
+            
+            setStyle() {
+                this.changeColorBtn.style.backgroundColor = this.colors[this.numberColor];
+            }
+
+            setNumberColor() {
+                if(this.numberColor == this.colors.length -1) {
+                    this.numberColor = 0;
+                }else{
+                    this.numberColor++;
+                }
+            }
+
+            changeColorArray(colors) {
+                this.colors = this.initColors(colors);
+                this.numberColor = 0;
+            }
+
+            initColors(colors) {
+                return colors.split(' ');
+            }
+
+            initCtx(canvas) {
+                return canvas.getContext('2d');
+            }
+
+            setSizeCanvas() {
+                this.canvas.width = this.width;
+                this.canvas.height = this.height;
+                this.ctx.lineWidth = this.linewidth;
+            }
+
+            getElm(attb) {
+                return document.querySelector(attb);
+            }
+
+            paints(e) {
+                switch(this.typePaint) {
+                    case 'freeDom':
+                        if(this.paintning) {
+                        this.ctx.lineTo(e.clientX, e.clientY);
+                        this.ctx.stroke();
+                        };
+                        break;
+
+                    case 'fillRect':
+                        if(this.paintning) {
+                            this.ctx.clearRect(this.initX, this.initY, e.clientX - this.initX, e.clientY - this.initY);
+                            this.ctx.strokeRect(this.initX, this.initY, e.clientX - this.initX, e.clientY - this.initY); 
+                        }
+                        break;
+
+                    case 'lineTo':
+                        console.log('line');
+                        break;
+
+                    default:
+                        console.log('default');
+                        break;
+                }
+            }
+            
+            paintStart(e) {
+                this.paintning = true;
+                this.initX = e.clientX;
+                this.initY = e.clientY;
+                this.ctx.beginPath();
+                this.ctx.strokeStyle = this.colors[this.numberColor];
+            }
+
+            paintStop() {
+                this.paintning = false;
+            }
+
+            start() {
+                this.setSizeCanvas();
+                this.ctx.fillStyle = 'transparent';
+                this.inputColor.value = this.option.colors;
+                this.setStyle();
+            }
+        };
+        let cvs = new Canvas({
+            width: 500,
+            height: 500,
+            linewidth: 3,
+            colors: 'red blue green',
+            canvas: '#canvas',
+            text: '#colors',
+            btn: {
+                changeColor: '#changeColorBtn',
+                go: '#go',
+                freeDom: '.freeDom',
+                fillRect: '.fillRect',
+                lineTo: '.lineTo'
+            }
+        });
+        cvs.start();
+        cvs.changeColorBtn.addEventListener('click', function() {
+            cvs.setNumberColor();
+            cvs.setStyle();
+            cvs.ctx.clearRect(60, 60, 100, 200);
+        });
+        cvs.goBtn.addEventListener('click', function() {
+            cvs.changeColorArray(cvs.inputColor.value);
+            cvs.setStyle();
+        });
+        cvs.freeDomBtn.addEventListener('click', function() {
+            cvs.typePaint = this.dataset.paint;
+        })
+        cvs.fillRectBtn.addEventListener('click', function(e) {
+            cvs.typePaint = this.dataset.paint;
+        });
+        cvs.lineToBtn.addEventListener('click', function() {
+            cvs.typePaint = this.dataset.paint;
+        });
+        window.addEventListener('mousedown', function(e) {
+            cvs.paintStart(e);
+        });
+        window.addEventListener('mouseup', function(e) {
+            cvs.paintStop();
+        });
+        window.addEventListener('mousemove', function(e) {
+            cvs.paints(e);
+        });
+    </script>
+</body>
+</html>
