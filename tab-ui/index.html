@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html{
+        font-size: 62.5%;
+        font-family: sans-serif;
+    }
+    body{
+        background-color: #f5f5f5;
+    }
+    .flex{
+        display: flex;
+    }
+    .displayNone{
+        display: none;
+    }
+    .wrapper{
+        max-width: 120rem;
+        margin: auto;
+    }
+    .container{
+        position: relative;
+        padding:1rem;
+    }
+    .items-title{
+        display:flex;
+    }
+    .item.df{
+        width: 6.3rem;
+    }
+    .item.active{
+        background-color:#f6ebed;
+    }
+    .title{
+        padding: 0 1rem;
+        font-size: 1.6rem;
+        color:red;
+    }
+    .line{
+        position:absolute;
+        width: inherit;
+        height: .5rem;
+        background-color: red;
+        border-radius: 2rem;
+        transition: all .5s linear;
+    }
+    .items-content{
+        margin-top:2rem;
+    }
+    .item-text{
+        font-size: 1.2rem;
+        display:none;
+    }
+    .item-text.active{
+        display:block;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="items-title">
+            <div class="item df active">
+                <div class="title">Home</div>
+                <div class="line"></div>
+            </div>
+            <div class="item">
+                <div class="title">Products</div>
+            </div>
+            <div class="item">
+                <div class="title">Adminstrator</div>
+            </div>
+            <div class="item">
+                <div class="title">Trash</div>
+            </div>
+        </div>
+        <div class="items-content">
+            <div class="item-text active">home here lorem If you'd like to automatically verify devices in the future, consider enabling two-factor authentication on your account. Visit https://docs.github.com/articles/configuring-two-factor-authentication to learn about two-factor authentication.</div>
+            <div class="item-text">products here If you'd like to automatically verify devices in the future, consider enabling two-factor authentication on your account. Visit https://docs.github.com/articles/configuring-two-factor-authentication to learn about two-factor authentication.</div>
+            <div class="item-text">admin here</div>
+            <div class="item-text">trash here If you'd like to automatically verify devices in the future, consider enabling two-factor authentication on your account. Visit https://docs.github.com/articles/configuring-two-factor-authentication to learn about two-factor authentication.</div>
+        </div>
+    </div>
+    <script>
+        let items = document.querySelectorAll('.item');
+        let line = document.querySelector('.line');
+        let itemText = document.querySelectorAll('.item-text');
+        items.forEach((i, index) => {
+            i.onclick = function() {
+                items.forEach((item, i) => {
+                    item.classList.remove('active');
+                    itemText[i].classList.remove('active');
+                });
+                itemText[index].classList.add('active');
+                this.classList.add('active');
+                line.style.left = this.offsetLeft + 'px';
+                line.style.width = this.offsetWidth + 'px';
+            }
+        })
+    </script>
+</body>
+</html>
