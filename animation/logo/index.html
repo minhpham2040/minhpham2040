@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html{
+        font-size: 62.5%;
+        font-family: sans-serif;
+    }
+    body{
+        background-color: #f5f5f5;
+    }
+    .circle{
+        position:relative;
+        width:20rem;
+        height:20rem;
+        background-color:#73c2b9;
+        border-radius:50%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+    .logo{
+        position:absolute;
+        width:14rem;
+        height:14rem;
+        border-radius:50%;
+        background-color: #fff;
+        background-image: url("https://vietnam-toyota.com.vn/wp-content/uploads/2020/02/toyota-innova-v-2021-dong-4v8-1.png");
+        background-size: cover;
+    }
+    .text{
+        position:absolute;
+        width:100%;
+        height:100%;
+        font-size:2rem;
+        color:#fff;
+        animation: circle 30s linear infinite;
+    }
+    @keyframes circle{
+        0%{
+            transform: rotate(360deg);
+        }
+        100%{
+            tranform: rotate(0);
+        }
+    }
+    .text span{
+        position:absolute;
+        transform-origin: 0 100px;
+        left: 50%;
+    }
+</style>
+<body>
+    <div class="circle">
+        <div class="logo"></div>
+        <div class="text"></div>
+    </div>
+    <script>
+        function run() {
+            let string = 'DVDL HIEU PHAM LH:090955920';
+            let text = document.querySelector(".text");
+            text.innerHTML = string.split("").map((char, i) => {
+                return `<span style="transform: rotate(${i * 13}deg);">${char}</span>`;
+            }).join("");
+        };
+        run();
+    </script>
+</body>
+</html>
